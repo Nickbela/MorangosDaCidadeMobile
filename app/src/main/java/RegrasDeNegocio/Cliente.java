@@ -6,12 +6,15 @@ import java.util.List;
 public class Cliente {
     private String nome;
     private String cpf;
+    private String email;
+    private String senha;
     private Endereco endereco;
     private List<Contato> contatos;
 
     public Cliente(String nome, String cpf, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
+        this.senha = senha;
         this.endereco = endereco;
         this.contatos = new ArrayList<>();
     }
@@ -30,6 +33,22 @@ public class Cliente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getSenha(){
+        return senha;
+    }
+
+    public void setSenha(String senha){
+        this.senha = senha;
     }
 
     public Endereco getEndereco() {
