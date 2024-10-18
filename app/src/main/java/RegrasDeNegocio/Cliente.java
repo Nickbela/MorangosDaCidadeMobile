@@ -9,14 +9,14 @@ public class Cliente {
     private String email;
     private String senha;
     private Endereco endereco;
-    private List<Contato> contatos;
+    private List<String> telefones;
 
     public Cliente(String nome, String cpf, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
         this.endereco = endereco;
-        this.contatos = new ArrayList<>();
+        this.telefones = new ArrayList<>();
     }
 
     public String getNome() {
@@ -59,12 +59,16 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public List<Contato> getContatos() {
-        return contatos;
+    public List<String> getTelefones() {
+        return telefones;
     }
 
-    public void addContato(Contato contato) {
-        this.contatos.add(contato);
+    public void adicionarTelefone(String telefones) {
+        this.telefones.add(telefones);
+    }
+
+    public boolean removerTelefone(String telefones) {
+        return this.telefones.remove(telefones); // Remove o telefone e retorna true se foi removido
     }
 }
 

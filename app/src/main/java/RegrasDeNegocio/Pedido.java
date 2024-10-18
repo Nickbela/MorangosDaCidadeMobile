@@ -15,18 +15,4 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-
-
-    public void imprimirPedido() {
-        System.out.println("Informações do Cliente: " + cliente.getNome());
-        System.out.println("CPF: " + cliente.getCpf());
-        System.out.println("Endereço: " + cliente.getEndereco().getRua() + ", "
-                + cliente.getEndereco().getCidade() + ", "
-                + cliente.getEndereco().getEstado() + " - "
-                + cliente.getEndereco().getCep());
-        System.out.println("Contatos:");
-        for (Contato contato : cliente.getContatos()) {
-            System.out.println("  " + contato.getTipo() + ": " + contato.getValor());
-        }
-    }
 }
