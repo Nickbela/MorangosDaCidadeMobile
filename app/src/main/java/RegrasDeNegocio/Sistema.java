@@ -146,7 +146,6 @@ public class Sistema {
         System.out.println("Erro: Cliente não encontrado.");
         return false; // Retorna falso se o cliente não for encontrado
     }
-
     public boolean removerTelefoneDoClienteLogado(String telefone) {
         if (clienteLogado != null) {
             return clienteLogado.removerTelefone(telefone);
