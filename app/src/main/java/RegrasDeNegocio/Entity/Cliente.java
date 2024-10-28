@@ -1,8 +1,6 @@
-package RegrasDeNegocio;
+package RegrasDeNegocio.Entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Cliente implements Serializable {
     private String nome;
@@ -61,7 +59,7 @@ public class Cliente implements Serializable {
     }
 
     public String getTelefone() {
-        return telefones;
+        return telefone;
     }
 
     public void setTelefone(String telefone){

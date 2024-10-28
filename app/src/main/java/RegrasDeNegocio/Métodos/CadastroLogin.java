@@ -1,4 +1,4 @@
-package RegrasDeNegocio;
+package RegrasDeNegocio.Métodos;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Sistema {
+import RegrasDeNegocio.Entity.Cliente;
+
+public class CadastroLogin {
     private List<Cliente> clientes;
     private Cliente clienteLogado;
 
-    public Sistema() {
+    public CadastroLogin() {
         this.clientes = new ArrayList<>();
     }
 

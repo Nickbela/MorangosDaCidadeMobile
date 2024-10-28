@@ -1,5 +1,7 @@
 package RegrasDeNegocio;
 
+import RegrasDeNegocio.Entity.Cliente;
+
 public class Pedido {
     private Cliente cliente;
 
