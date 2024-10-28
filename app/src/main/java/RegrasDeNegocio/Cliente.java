@@ -1,22 +1,23 @@
 package RegrasDeNegocio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente {
+public class Cliente implements Serializable {
     private String nome;
     private String cpf;
     private String email;
     private String senha;
     private Endereco endereco;
-    private List<String> telefones;
+    private String telefone;
 
     public Cliente(String nome, String cpf, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
         this.endereco = endereco;
-        this.telefones = new ArrayList<>();
+        this.telefone = telefone;
     }
 
     public String getNome() {
@@ -59,16 +60,13 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public List<String> getTelefones() {
+    public String getTelefone() {
         return telefones;
     }
 
-    public void adicionarTelefone(String telefones) {
-        this.telefones.add(telefones);
+    public void setTelefone(String telefone){
+        this.telefone = telefone;
     }
 
-    public boolean removerTelefone(String telefones) {
-        return this.telefones.remove(telefones); // Remove o telefone e retorna true se foi removido
-    }
 }
 
