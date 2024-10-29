@@ -1,4 +1,4 @@
-package RegrasDeNegocio;
+package RegrasDeNegocio.Entity;
 
 public class Produto {
     private String nome;

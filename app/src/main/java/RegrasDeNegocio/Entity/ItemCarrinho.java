@@ -1,20 +1,17 @@
-package RegrasDeNegocio;
+package RegrasDeNegocio.Entity;
 
-public class ItemPedido {
+public class ItemCarrinho {
     private Produto produto;
     private int quantidade;
 
-    public ItemPedido(Produto produto, int quantidade) {
+    public ItemCarrinho(Produto produto, int quantidade) {
         this.produto = produto;
         this.quantidade = quantidade;
     }
 
     public Produto getProduto() {
-        return produto;
-    }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+        return produto;
     }
 
     public int getQuantidade() {
@@ -25,7 +22,8 @@ public class ItemPedido {
         this.quantidade = quantidade;
     }
 
-    public double calcularTotal() {
+    public double calcularTotalItem() {
         return produto.getPreco() * quantidade;
     }
 }
+
