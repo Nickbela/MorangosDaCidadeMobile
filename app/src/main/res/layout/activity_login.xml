@@ -1,19 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#A20000"
-    android:orientation="horizontal"
-    tools:context=".Login">
+    tools:context=".LoginTeste">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="200dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="277dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="294dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="154dp"
+        android:layout_height="154dp"
+        app:srcCompat="@mipmap/ic_logo_foreground"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="87dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Senha"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="368dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:backgroundTint="#FF0000"
-        android:text="Button" />
-</LinearLayout>
+        android:background="#830924"
+        android:backgroundTint="#950808"
+        android:text="Login"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="467dp" />
+
+    <Button
+        android:id="@+id/btn_cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastre-se"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="539dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

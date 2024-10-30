@@ -16,7 +16,7 @@ public class CadastroLogin {
         this.clientes = new ArrayList<>();
     }
 
-    public void cadastrarCliente(Cliente cliente) {
+    public static void cadastrarCliente(Cliente cliente) {
         this.clientes.add(cliente);
     }
 
@@ -45,7 +45,7 @@ public class CadastroLogin {
     *
     * isso ira fazer com que puxe do banco de dados o cliente correto para apresentação do dados.*/
 
-    private boolean isEmailValido(String email) {
+    public static boolean isEmailValido(String email) {
         // Expressão regular para validar emails comuns
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
         Pattern pattern = Pattern.compile(regex);
