@@ -43,10 +43,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
         // Captura os valores digitados nos campos.
-                String email = input_email.getText().toString();
-                String senha = input_senha.getText().toString();
-                String cpf = input_email.getText().toString();
-
 
                 private void realizarLogin() {
                     String email = input_email.getText().toString().trim();

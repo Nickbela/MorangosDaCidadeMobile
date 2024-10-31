@@ -16,6 +16,7 @@
         tools:layout_editor_absoluteY="117dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
@@ -36,4 +37,69 @@
         android:hint="E-mail"
         tools:layout_editor_absoluteX="-1dp"
         tools:layout_editor_absoluteY="208dp" />
+
+    <EditText
+        android:id="@+id/input_cpf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="CPF"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="383dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="359dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Senha"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <EditText
+        android:id="@+id/input_endereco"
+        android:layout_width="394dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:hint="Endereço"
+        android:inputType="textPostalAddress"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="463dp" />
+
+    <EditText
+        android:id="@+id/input_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="553dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CADASTRE-SE CONOSCO!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <Button
+        android:id="@+id/btn_cadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="637dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
