@@ -10,7 +10,7 @@ public class Cliente implements Serializable {
     private Endereco endereco;
     private String telefone;
 
-    public Cliente(String nome, String cpf, Endereco endereco) {
+    public Cliente(String nome, String cpf, String senha, Endereco endereco, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;

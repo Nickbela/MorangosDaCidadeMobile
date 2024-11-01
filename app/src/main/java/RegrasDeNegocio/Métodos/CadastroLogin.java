@@ -20,7 +20,7 @@ public class CadastroLogin {
         this.clientes.add(cliente);
     }
 
-    public boolean login(String identificador, String senha) {
+    public static boolean login(String identificador, String senha) {
         for (Cliente cliente : clientes) {
             // Verifica se o identificador é o CPF ou o email
             if ((cliente.getCpf().equals(identificador) || cliente.getEmail().equals(identificador))
