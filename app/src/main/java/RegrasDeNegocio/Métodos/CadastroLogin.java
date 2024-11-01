@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
 import RegrasDeNegocio.Entity.Cliente;
 
 public class CadastroLogin {
-    private List<Cliente> clientes;
-    private Cliente clienteLogado;
+    private static List<Cliente> clientes;
+    private static Cliente clienteLogado;
 
     public CadastroLogin() {
         this.clientes = new ArrayList<>();

@@ -42,6 +42,7 @@ public class Cadastro extends AppCompatActivity {
         EditText input_cidade = findViewById(R.id.input_cidade);
         EditText input_estado = findViewById(R.id.input_estado);
         EditText input_cep = findViewById(R.id.input_cep);
+        EditText input_numero = findViewById(R.id.input_numero);
 
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +56,9 @@ public class Cadastro extends AppCompatActivity {
                 String cidade = input_cidade.getText().toString();
                 String estado = input_estado.getText().toString();
                 String cep = input_cep.getText().toString();
+                String numero = input_numero.getText().toString();
 
-                Endereco endereco = new Endereco(rua, cidade, estado, cep);
+                Endereco endereco = new Endereco(rua, cidade, estado, cep, numero);
 
                 // Validar o email
                 if (isEmailValido(email)) {
