@@ -36,8 +36,13 @@ public class Cadastro extends AppCompatActivity {
         EditText input_email = findViewById(R.id.input_email);
         EditText input_senha = findViewById(R.id.input_senha);
         EditText input_cpf = findViewById(R.id.input_cpf);
-        EditText input_endereco = findViewById(R.id.input_cep);
         Button btn_salvar = findViewById(R.id.btn_cadastrar);
+        EditText input_telefone = findViewById(R.id.input_telefone);
+        EditText input_rua = findViewById(R.id.input_rua);
+        EditText input_cidade = findViewById(R.id.input_cidade);
+        EditText input_estado = findViewById(R.id.input_estado);
+        EditText input_cep = findViewById(R.id.input_cep);
+        EditText input_numero = findViewById(R.id.input_numero);
 
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,14 +51,21 @@ public class Cadastro extends AppCompatActivity {
                 String email = input_email.getText().toString();
                 String cpf = input_cpf.getText().toString();
                 String senha = input_senha.getText().toString();
-                Endereco endereco = input_endereco.getText().toString();
+                String telefone = input_telefone.getText().toString();
+                String rua = input_rua.getText().toString();
+                String cidade = input_cidade.getText().toString();
+                String estado = input_estado.getText().toString();
+                String cep = input_cep.getText().toString();
+                String numero = input_numero.getText().toString();
+
+                Endereco endereco = new Endereco(rua, cidade, estado, cep, numero);
 
                 // Validar o email
                 if (isEmailValido(email)) {
                     input_email.setError("Email inválido");
                 } else {
                     // Cria um novo cliente
-                    Cliente novoCliente = new Cliente(nome, email, cpf, senha);
+                    Cliente novoCliente = new Cliente( nome, cpf, senha, endereco, telefone);
 
                     // Cadastra o cliente
                     CadastroLogin.cadastrarCliente(novoCliente);
