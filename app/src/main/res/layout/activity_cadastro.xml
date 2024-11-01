@@ -7,99 +7,107 @@
     android:layout_height="match_parent"
     tools:context=".Cadastro">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_nome"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:hint="Nome Completo"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="117dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="237dp">
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="E-mail"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="208dp" />
-
-    <EditText
-        android:id="@+id/input_cpf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="CPF"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="383dp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="359dp">
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_senha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Senha"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="288dp" />
-
-    <EditText
-        android:id="@+id/input_endereco"
-        android:layout_width="394dp"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:hint="Endereço"
-        android:inputType="textPostalAddress"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="463dp" />
-
-    <EditText
-        android:id="@+id/input_telefone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Telefone"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="553dp" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CADASTRE-SE CONOSCO!"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="34sp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="44dp" />
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="48dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_senha"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:hint="Senha"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="251dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_nome"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:hint="Nome completo"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_email"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:hint="E-mail"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="193dp" />
+
+    <EditText
+        android:id="@+id/input_cpf"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="CPF"
+        android:inputType="number"
+        android:linksClickable="false"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="315dp" />
+
+    <EditText
+        android:id="@+id/input_telefone"
+        android:layout_width="185dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="371dp" />
+
+    <EditText
+        android:id="@+id/input_cep"
+        android:layout_width="185dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="CEP"
+        android:inputType="textPostalAddress"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="425dp" />
 
     <Button
         android:id="@+id/btn_cadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#920101"
         android:text="Cadastrar"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="637dp" />
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="631dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_rua"
+        android:layout_width="275dp"
+        android:layout_height="40dp"
+        android:hint="Rua"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="482dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_numero"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:hint="Nº"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="482dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="535dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="hint" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

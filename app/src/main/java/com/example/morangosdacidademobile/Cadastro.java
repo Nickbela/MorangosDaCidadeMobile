@@ -36,7 +36,7 @@ public class Cadastro extends AppCompatActivity {
         EditText input_email = findViewById(R.id.input_email);
         EditText input_senha = findViewById(R.id.input_senha);
         EditText input_cpf = findViewById(R.id.input_cpf);
-        EditText input_endereco = findViewById(R.id.input_endereco);
+        EditText input_endereco = findViewById(R.id.input_cep);
         Button btn_salvar = findViewById(R.id.btn_cadastrar);
 
         btn_salvar.setOnClickListener(new View.OnClickListener() {
