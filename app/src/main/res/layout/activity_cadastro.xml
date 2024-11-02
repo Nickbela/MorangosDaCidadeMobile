@@ -98,16 +98,20 @@
         tools:layout_editor_absoluteX="300dp"
         tools:layout_editor_absoluteY="482dp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="535dp">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_cidade"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:hint="Cidade"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="545dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_estado"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:hint="Estado"
+        tools:layout_editor_absoluteX="205dp"
+        tools:layout_editor_absoluteY="545dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
