@@ -7,13 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import com.example.morangosdacidademobile.R.id;
-import RegrasDeNegocio.Entity.Cliente;
+
 import RegrasDeNegocio.Métodos.CadastroLogin;
 
 public class Login extends AppCompatActivity {
@@ -26,9 +24,9 @@ public class Login extends AppCompatActivity {
         EditText input_email = findViewById(R.id.input_email);
         EditText input_senha = findViewById(R.id.input_senha);
         Button btn_login = findViewById(R.id.btn_login);
-        Button btn_cadastro = findViewById(R.id.btn_cadastro);
+        TextView textViewSignUp = findViewById(R.id.textViewSignUp);
 
-        // Funcionalidades
+        // Funcionalidades do botão de login
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,9 +34,14 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        // Configure o botão de cadastro, se necessário
-        btn_cadastro.setOnClickListener(v -> {
-            // Implementação para abrir a tela de cadastro
+        // Configura o clique no texto "Cadastre-se aqui"
+        textViewSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redireciona para a tela de cadastro
+                Intent intent = new Intent(Login.this, CadastroActivity.class);
+                startActivity(intent);
+            }
         });
     }
 
@@ -47,7 +50,7 @@ public class Login extends AppCompatActivity {
         String email = input_email.getText().toString().trim();
         String senha = input_senha.getText().toString().trim();
 
-        // Validação de formato de e-mail (opcional, apenas para feedback visual)
+        // Validação de formato de e-mail
         if (isEmailValido(email)) {
             input_email.setError(null); // Limpa erros se o formato do e-mail é válido
         } else {

@@ -1,230 +1,341 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Produto">
+    android:background="#FFFFFF"
+    android:padding="16dp">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/buscar_produtos"
-        android:layout_width="252dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="111dp"
-        android:layout_marginBottom="660dp"
-        android:hint="Buscar Produtos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SearchView
-        android:id="@+id/pesquisar"
-        android:layout_width="49dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="62dp"
-        android:layout_marginBottom="659dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/image_morango"
-        android:layout_width="160dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginEnd="222dp"
-        android:layout_marginBottom="486dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img" />
-
-    <TextView
-        android:id="@+id/Morango_Premium"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Morango Premium - "
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="247dp" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Caixote 10Kg"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="266dp" />
 
-    <Button
-        android:id="@+id/comprar_morango"
-        android:layout_width="116dp"
-        android:layout_height="38dp"
-        android:backgroundTint="#920101"
-        android:text="Comprar"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="307dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:background="#F5F5F5"
+            android:elevation="4dp"
+            android:layout_marginBottom="16dp">
 
-    <TextView
-        android:id="@+id/Preco_morango"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#870909"
-        android:text="R$ 150,00"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="285dp" />
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Buscar produtos..."
+                android:padding="8dp"
+                android:background="#FFFFFF"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHint="#757575" />
 
-    <TextView
-        android:id="@+id/Geleia_Morango"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Geleia de Morango"
-        tools:layout_editor_absoluteX="234dp"
-        tools:layout_editor_absoluteY="247dp" />
+            <Button
+                android:id="@+id/buttonSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="#D32F2F"
+                android:backgroundTint="#810000"
+                android:text="Buscar"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/comprar_geleia"
-        android:layout_width="116dp"
-        android:layout_height="38dp"
-        android:backgroundTint="#920101"
-        android:text="Comprar"
-        tools:layout_editor_absoluteX="236dp"
-        tools:layout_editor_absoluteY="307dp" />
+        <!-- Produto 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="#F5F5F5"
+            android:elevation="4dp"
+            android:layout_marginBottom="16dp">
 
-    <TextView
-        android:id="@+id/preco_geleia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="R$ 240,00"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:layout_editor_absoluteX="262dp"
-        tools:layout_editor_absoluteY="285dp" />
+            <!-- Detalhes do Produto -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingEnd="16dp">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cx 24 unidades"
-        tools:layout_editor_absoluteX="246dp"
-        tools:layout_editor_absoluteY="266dp" />
+                <TextView
+                    android:id="@+id/textNomeProduto1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Morango Albion | Cx 10kg"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="154dp"
-        android:layout_height="129dp"
-        app:srcCompat="@mipmap/ic_geleiam_foreground"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="118dp" />
+                <TextView
+                    android:id="@+id/textValorProduto1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valor: R$ 150,00"
+                    android:textSize="16sp"
+                    android:textColor="#757575"
+                    android:layout_marginBottom="8dp" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="146dp"
-        android:layout_height="145dp"
-        android:layout_marginTop="372dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_desidratado_foreground"
-        tools:layout_editor_absoluteX="29dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/Desidratado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Morango Desidratado"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="517dp" />
+                    <EditText
+                        android:id="@+id/editQuantidadeProduto1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Qtd"
+                        android:inputType="number"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_marginRight="16dp" />
 
-    <TextView
-        android:id="@+id/Granel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="À granel - 10 kg"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="536dp" />
+                    <Button
+                        android:id="@+id/buttonComprarProduto1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Comprar"
+                        android:background="#D32F2F"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/comprar_desidratado"
-        android:layout_width="116dp"
-        android:layout_height="38dp"
-        android:backgroundTint="#920101"
-        android:text="Comprar"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="579dp" />
+            <!-- Imagem do Produto -->
+            <ImageView
+                android:id="@+id/imageProduto1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_albion1_foreground"
+            android:contentDescription="Imagem do Produto"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/preco_desidratado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="R$ 300,00"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="560dp" />
+        <!-- Produto 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="#F5F5F5"
+            android:elevation="4dp"
+            android:layout_marginBottom="16dp">
 
-    <TextView
-        android:id="@+id/mor_gigante"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Morango Gigante"
-        tools:layout_editor_absoluteX="236dp"
-        tools:layout_editor_absoluteY="515dp" /><![CDATA[
+            <!-- Detalhes do Produto -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingEnd="16dp">
 
-    tools:layout_editor_absoluteX="216dp"
-    tools:layout_editor_absoluteY="372dp" />
+                <TextView
+                    android:id="@+id/textNomeProduto2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Morango Capri | Cx 10kg"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="8dp" />
 
-    ]]>
+                <TextView
+                    android:id="@+id/textValorProduto2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valor: R$ 185,00"
+                    android:textSize="16sp"
+                    android:textColor="#757575"
+                    android:layout_marginBottom="8dp" />
 
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="149dp"
-        android:layout_height="143dp"
-        android:contentDescription="MorangoGigante"
-        app:srcCompat="@drawable/img_2"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="374dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/mor_gigante1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Caixote 10Kg"
-        tools:layout_editor_absoluteX="246dp"
-        tools:layout_editor_absoluteY="536dp" />
+                    <EditText
+                        android:id="@+id/editQuantidadeProduto2"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Qtd"
+                        android:inputType="number"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_marginRight="16dp" />
 
-    <TextView
-        android:id="@+id/preco_gigante"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="R$ 250,00"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:layout_editor_absoluteX="257dp"
-        tools:layout_editor_absoluteY="560dp" />
+                    <Button
+                        android:id="@+id/buttonComprarProduto2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Comprar"
+                        android:background="#D32F2F"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/comprar_gigante"
-        android:layout_width="116dp"
-        android:layout_height="38dp"
-        android:backgroundTint="#920101"
-        android:text="Comprar"
-        tools:layout_editor_absoluteX="236dp"
-        tools:layout_editor_absoluteY="579dp" />
+            <!-- Imagem do Produto -->
+            <ImageView
+                android:id="@+id/imageProduto2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_capri_foreground"
+            android:contentDescription="Imagem do Produto"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/pagina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginBottom="16dp"
-        android:text="Página 1 de 1."
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <!-- Produto 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="#F5F5F5"
+            android:elevation="4dp"
+            android:layout_marginBottom="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Detalhes do Produto -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/textNomeProduto3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Morango Diamante | Cx 10kg"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/textValorProduto3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valor: R$ 190,00"
+                    android:textSize="16sp"
+                    android:textColor="#757575"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <EditText
+                        android:id="@+id/editQuantidadeProduto3"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Qtd"
+                        android:inputType="number"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_marginRight="16dp" />
+
+                    <Button
+                        android:id="@+id/buttonComprarProduto3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Comprar"
+                        android:background="#D32F2F"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Imagem do Produto -->
+            <ImageView
+                android:id="@+id/imageProduto3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_diamante_foreground"  <!-- Substitua pelo ícone ou imagem real -->
+            android:contentDescription="Imagem do Produto"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop" />
+        </LinearLayout>
+
+        <!-- Produto 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="#F5F5F5"
+            android:elevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Detalhes do Produto -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/textNomeProduto4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Morango Bourbon | Cx 10kg"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/textValorProduto4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valor: R$ 210,00"
+                    android:textSize="16sp"
+                    android:textColor="#757575"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <EditText
+                        android:id="@+id/editQuantidadeProduto4"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Qtd"
+                        android:inputType="number"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_marginRight="16dp" />
+
+                    <Button
+                        android:id="@+id/buttonComprarProduto4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Comprar"
+                        android:background="#D32F2F"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Imagem do Produto -->
+            <ImageView
+                android:id="@+id/imageProduto4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_bourbon_foreground"  <!-- Substitua pelo ícone ou imagem real -->
+            android:contentDescription="Imagem do Produto"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop" />
+        </LinearLayout>
+

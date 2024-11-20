@@ -1,58 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginTeste">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    tools:context=".Login">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_email"
-        android:layout_width="358dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="298dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="395dp"
-        android:hint="E-mail"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_senha"
-        android:layout_width="360dp"
-        android:layout_height="44dp"
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="Senha"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="361dp" />
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/btn_cadastro"
-        android:layout_width="347dp"
-        android:layout_height="45dp"
-        android:backgroundTint="#920101"
-        android:text="Cadastre-se"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="510dp" />
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="348dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#920101"
-        android:text="Login"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="450dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Entrar"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
 
-    <ImageView
-        android:id="@+id/image_logo"
-        android:layout_width="219dp"
-        android:layout_height="174dp"
-        android:src="@mipmap/ic_logo_foreground"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="102dp" />
+    <!-- Texto com link para cadastro -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Não tem uma conta? "
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textViewSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="Cadastre-se aqui"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

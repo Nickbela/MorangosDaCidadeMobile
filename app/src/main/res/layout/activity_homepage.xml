@@ -1,16 +1,177 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Homepage">
+    android:background="#FFFFFF"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BEM-VINDO!"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="50dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <!-- Banner de Boas-vindas -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bem-vindo à Morangos da Cidade!"
+            android:textSize="24sp"
+            android:textColor="#D32F2F"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Subtítulo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Explore nossos produtos fresquinhos diretamente da fazenda!"
+            android:textSize="16sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Categoria de Produtos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Categorias de Produtos"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Botões para Categorias -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="32dp">
+
+            <!-- Botão Morangos Frescos -->
+            <Button
+                android:id="@+id/buttonMorangosFrescos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Morangos Frescos"
+                android:textColor="#FFFFFF"
+                android:background="#D32F2F"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Botão Geleias -->
+            <Button
+                android:id="@+id/buttonGeleias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Geleias"
+                android:textColor="#FFFFFF"
+                android:background="#D32F2F"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Botão Sorvetes -->
+            <Button
+                android:id="@+id/buttonSorvetes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sorvetes"
+                android:textColor="#FFFFFF"
+                android:background="#D32F2F"/>
+        </LinearLayout>
+
+        <!-- Promoções -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Promoções da Semana"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Lista de Promoções -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="32dp">
+
+            <!-- Produto Promoção 1 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="16dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_produto_promo"
+                    android:contentDescription="Promoção Produto 1"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Morangos Orgânicos"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R$ 8,00"
+                    android:textColor="#D32F2F"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <!-- Produto Promoção 2 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_produto_promo"
+                    android:contentDescription="Promoção Produto 2"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Geleia de Morango"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R$ 15,00"
+                    android:textColor="#D32F2F"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botão para ver todos os produtos -->
+        <Button
+            android:id="@+id/buttonVerProdutos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver Todos os Produtos"
+            android:textColor="#FFFFFF"
+            android:background="#D32F2F"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>

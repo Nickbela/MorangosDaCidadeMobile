@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Card Superior com Título -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:marginBottom="16dp"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@mipmap/ic_confirmacao_foreground"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="Ícone de confirmação" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirmação de Pedido"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:layout_gravity="center_horizontal"
+                android:marginTop="12dp" />
+        </LinearLayout>
+
+        <!-- Seção de Dados do Cliente -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detalhes do Cliente"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvNomeCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome: João Silva"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvTelefoneCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefone: (11) 99999-9999"
+                android:textSize="16sp"
+                android:textColor="#333333" />
+        </LinearLayout>
+
+        <!-- Seção de Detalhes do Pedido -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detalhes do Pedido"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvDetalhesPedido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pedido: 2 caixas de morangos"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total: R$ 40,00"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50" />
+        </LinearLayout>
+
+        <!-- Botões de Ação -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btnConfirmarPedido"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Confirmar"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnCancelarPedido"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancelar"
+                android:backgroundTint="#F44336"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
