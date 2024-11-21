@@ -32,11 +32,11 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
             super(itemView);
 
             // Vincule os IDs das views no layout do item
-            nome = itemView.findViewById(R.id.tvNomeProduto);
-            preco = itemView.findViewById(R.id.tvPrecoProduto);
-            quantidade = itemView.findViewById(R.id.tvQuantidadeProduto);
-            imagem = itemView.findViewById(R.id.ivProduto);
-            btnRemover = itemView.findViewById(R.id.ivRemoverProduto);
+            nome = itemView.findViewById(R.id.textNomeProduto);
+            preco = itemView.findViewById(R.id.textValorProduto);
+            quantidade = itemView.findViewById(R.id.editQuantidadeProduto);
+            imagem = itemView.findViewById(R.id.imageProduto);
+            //btnRemover = itemView.findViewById(R.id.ivRemoverProduto);
         }
     }
 
@@ -45,7 +45,7 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
     public CarrinhoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflar o layout do item do carrinho
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_carrinho, parent, false);
+                .inflate(R.layout.item_produto, parent, false);
         return new CarrinhoViewHolder(view);
     }
 
