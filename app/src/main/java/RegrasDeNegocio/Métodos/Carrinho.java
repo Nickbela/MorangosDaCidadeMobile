@@ -6,31 +6,30 @@ package RegrasDeNegocio.Métodos;
     import RegrasDeNegocio.Entity.Produto;
 
 public class Carrinho {
-        private List<ItemCarrinho> itens;
+        private List<Produto> produtos;
 
         public Carrinho() {
-            this.itens = new ArrayList<>();
+            this.produtos = new ArrayList<>();
         }
 
         // Método para adicionar um produto ao carrinho
-        public void adicionarProduto(Produto produto, int quantidade) {
-            for (ItemCarrinho item : itens) {
-                if (item.getProduto().getNome().equals(produto.getNome())) {
-                    item.setQuantidade(item.getQuantidade() + quantidade);
-                    return;
-                }
-            }
-            itens.add(new ItemCarrinho(produto, quantidade));
+        public void adicionarItem(Produto produto) {
+            produtos.add(produto); // Adiciona o item à lista
+            notifyItemInserted(produtos.size() - 1); // Notifica a inserção
         }
+
 
         // Método para remover um produto do carrinho
-        public void removerProduto(String nomeProduto) {
-            itens.removeIf(item -> item.getProduto().getNome().equals(nomeProduto));
+        public void removerItem(int position) {
+            produtos.remove(position); // Remove o item da lista
+            notifyItemRemoved(position); // Notifica a remoção
+            notifyItemRangeChanged(position, produtos.size()); // Atualiza os índices
         }
 
-        // Método para recuperar itens no carrinho
-        public List<ItemCarrinho> getItens() {
-            return itens;
+
+    // Método para recuperar itens no carrinho
+        public List<Produto> getItens() {
+            return produtos;
         }
 
         // Método para calcular o valor total do carrinho
@@ -42,6 +41,13 @@ public class Carrinho {
             return total;
         }
 
+    public void atualizarQuantidade(int position, int novaQuantidade) {
+        Produto produto = produtos.get(position);
+        produto.setQuantidade(novaQuantidade); // Atualiza a quantidade
+        notifyItemChanged(position); // Notifica a alteração
     }
+
+
+}
 
 

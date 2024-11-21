@@ -1,381 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    android:padding="16dp"
-    tools:context=".ProductsActivity">
+    android:background="#F5F5F5">
 
+    <!-- Barra de busca -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:padding="12dp"
+        android:gravity="center_vertical">
 
-        <!-- Barra de busca -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/editTextSearch"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#FFFFFF"
-            android:elevation="4dp"
+            android:layout_weight="1"
+            android:hint="Buscar produtos..."
             android:padding="12dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center_vertical">
+            android:background="@drawable/search_background"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textColorHint="#757575" />
 
-            <EditText
-                android:id="@+id/editTextSearch"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Buscar produtos..."
-                android:padding="12dp"
-                android:background="@drawable/search_background"
-                android:inputType="text"
-                android:textColor="#000000"
-                android:textColorHint="#757575" />
-
-            <ImageView
-                android:id="@+id/buttonSearch"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/ic_lupa_foreground"
-                android:tint="#D32F2F"
-                android:contentDescription="Buscar" />
-        </LinearLayout>
-
-        <!-- Exemplo de produto -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardBackgroundColor="#FFFFFF">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical">
-
-                <!-- Imagem do Produto -->
-                <ImageView
-                    android:id="@+id/imageProduto1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@mipmap/ic_albion1_foreground"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="Imagem do Produto"
-                    android:elevation="2dp"
-                    android:layout_marginEnd="16dp" />
-
-                <!-- Detalhes do Produto -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textNomeProduto1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Morango Albion | Cx 10kg"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/textValorProduto1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="R$ 150,00"
-                        android:textSize="16sp"
-                        android:textColor="#4CAF50"
-                        android:layout_marginBottom="8dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <EditText
-                            android:id="@+id/editQuantidadeProduto1"
-                            android:layout_width="50dp"
-                            android:layout_height="40dp"
-                            android:hint="Qtd"
-                            android:inputType="number"
-                            android:gravity="center"
-                            android:background="@drawable/input_background"
-                            android:textColor="#000000"
-                            android:layout_marginEnd="16dp" />
-
-                        <Button
-                            android:id="@+id/buttonComprarProduto1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Comprar"
-                            android:backgroundTint="#D32F2F"
-                            android:textColor="#FFFFFF"
-                            android:padding="8dp"
-                            android:elevation="4dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <!--- Produto 2 -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardBackgroundColor="#FFFFFF">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical">
-
-                <!-- Imagem do Produto -->
-                <ImageView
-                    android:id="@+id/imageProduto2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@mipmap/ic_capri_foreground"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="Imagem do Produto"
-                    android:elevation="2dp"
-                    android:layout_marginEnd="16dp" />
-
-                <!-- Detalhes do Produto -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textNomeProduto2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Morango Capri | Cx 10kg"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/textValorProduto2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="R$ 185,00"
-                        android:textSize="16sp"
-                        android:textColor="#4CAF50"
-                        android:layout_marginBottom="8dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <EditText
-                            android:id="@+id/editQuantidadeProduto2"
-                            android:layout_width="50dp"
-                            android:layout_height="40dp"
-                            android:hint="Qtd"
-                            android:inputType="number"
-                            android:gravity="center"
-                            android:background="@drawable/input_background"
-                            android:textColor="#000000"
-                            android:layout_marginEnd="16dp" />
-
-                        <Button
-                            android:id="@+id/buttonComprarProduto2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Comprar"
-                            android:backgroundTint="#D32F2F"
-                            android:textColor="#FFFFFF"
-                            android:padding="8dp"
-                            android:elevation="4dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardBackgroundColor="#FFFFFF">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical">
-
-                <!-- Imagem do Produto -->
-                <ImageView
-                    android:id="@+id/imageProduto3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@mipmap/ic_diamante_foreground"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="Imagem do Produto"
-                    android:elevation="2dp"
-                    android:layout_marginEnd="16dp" />
-
-                <!-- Detalhes do Produto -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textNomeProduto3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Morango Diamante | Cx 10kg"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/textValorProduto3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="R$ 190,00"
-                        android:textSize="16sp"
-                        android:textColor="#4CAF50"
-                        android:layout_marginBottom="8dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <EditText
-                            android:id="@+id/editQuantidadeProduto3"
-                            android:layout_width="50dp"
-                            android:layout_height="40dp"
-                            android:hint="Qtd"
-                            android:inputType="number"
-                            android:gravity="center"
-                            android:background="@drawable/input_background"
-                            android:textColor="#000000"
-                            android:layout_marginEnd="16dp" />
-
-                        <Button
-                            android:id="@+id/buttonComprarProduto3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Comprar"
-                            android:backgroundTint="#D32F2F"
-                            android:textColor="#FFFFFF"
-                            android:padding="8dp"
-                            android:elevation="4dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardBackgroundColor="#FFFFFF">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical">
-
-                <!-- Imagem do Produto -->
-                <ImageView
-                    android:id="@+id/imageProduto4"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@mipmap/ic_bourbon_foreground"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="Imagem do Produto"
-                    android:elevation="2dp"
-                    android:layout_marginEnd="16dp" />
-
-                <!-- Detalhes do Produto -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textNomeProduto4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Morango Bourbon | Cx 10kg"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/textValorProduto4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="R$ 210,00"
-                        android:textSize="16sp"
-                        android:textColor="#4CAF50"
-                        android:layout_marginBottom="8dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <EditText
-                            android:id="@+id/editQuantidadeProduto4"
-                            android:layout_width="50dp"
-                            android:layout_height="40dp"
-                            android:hint="Qtd"
-                            android:inputType="number"
-                            android:gravity="center"
-                            android:background="@drawable/input_background"
-                            android:textColor="#000000"
-                            android:layout_marginEnd="16dp" />
-
-                        <Button
-                            android:id="@+id/buttonComprarProduto4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Comprar"
-                            android:backgroundTint="#D32F2F"
-                            android:textColor="#FFFFFF"
-                            android:padding="8dp"
-                            android:elevation="4dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
+        <ImageView
+            android:id="@+id/buttonSearch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/ic_lupa_foreground"
+            android:tint="#D32F2F"
+            android:contentDescription="Buscar" />
     </LinearLayout>
-</ScrollView>
+
+    <!-- Lista de produtos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/editTextSearch"
+        android:padding="16dp"
+        android:clipToPadding="false" />
+</RelativeLayout>

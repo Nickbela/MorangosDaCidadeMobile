@@ -6,9 +6,11 @@ public class Produto {
     private int quantidade;
     private int imagemId;
 
-    public Produto(String nome, double preco) {
+    public Produto(String nome, double preco, int quantidade, int imagemId) {
         this.nome = nome;
         this.preco = preco;
+        this.quantidade = quantidade;
+        this.imagemId = imagemId;
     }
 
     public String getNome() {

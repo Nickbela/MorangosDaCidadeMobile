@@ -68,6 +68,38 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
         });
     }
 
+    private List<Produto> produtos;
+
+    public CarrinhoAdapter(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    // Adicionar item
+    public void adicionarItem(Produto produto) {
+        produtos.add(produto);
+        notifyItemInserted(produtos.size() - 1);
+    }
+
+    // Remover item
+    public void removerItem(int position) {
+        produtos.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, produtos.size());
+    }
+
+    // Editar item
+    public void editarItem(int position, Produto produtoAtualizado) {
+        produtos.set(position, produtoAtualizado);
+        notifyItemChanged(position);
+    }
+
+    // Atualizar quantidade
+    public void atualizarQuantidade(int position, int novaQuantidade) {
+        Produto produto = produtos.get(position);
+        produto.setQuantidade(novaQuantidade);
+        notifyItemChanged(position);
+    }
+
     @Override
     public int getItemCount() {
         return produtos.size();
