@@ -1,177 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="16dp">
+    android:background="#F5F5F5">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- Banner de Boas-vindas -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bem-vindo à Morangos da Cidade!"
-            android:textSize="24sp"
-            android:textColor="#D32F2F"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"/>
-
-        <!-- Subtítulo -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Explore nossos produtos fresquinhos diretamente da fazenda!"
-            android:textSize="16sp"
-            android:textColor="#757575"
-            android:gravity="center"
-            android:layout_marginBottom="32dp"/>
-
-        <!-- Categoria de Produtos -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Categorias de Produtos"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Botões para Categorias -->
+        <!-- Banner de Boas-Vindas -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="32dp">
+            android:orientation="vertical"
+            android:background="#f46b4c"
+            android:padding="24dp"
+            android:marginBottom="16dp"
+            android:elevation="4dp">
 
-            <!-- Botão Morangos Frescos -->
-            <Button
-                android:id="@+id/buttonMorangosFrescos"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Morangos Frescos"
+                android:text="Bem-vindo à Fazenda de Morangos!"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF"
-                android:background="#D32F2F"
-                android:layout_marginEnd="16dp"/>
+                android:layout_gravity="center_horizontal"
+                android:marginBottom="12dp" />
 
-            <!-- Botão Geleias -->
-            <Button
-                android:id="@+id/buttonGeleias"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Geleias"
+                android:text="Explore nossos produtos frescos e feitos com carinho para você."
+                android:textSize="16sp"
                 android:textColor="#FFFFFF"
-                android:background="#D32F2F"
-                android:layout_marginEnd="16dp"/>
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp" />
 
-            <!-- Botão Sorvetes -->
-            <Button
-                android:id="@+id/buttonSorvetes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sorvetes"
-                android:textColor="#FFFFFF"
-                android:background="#D32F2F"/>
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@mipmap/ic_morango_foreground"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="Imagem de Morangos" />
         </LinearLayout>
 
-        <!-- Promoções -->
+        <!-- Seção de Destaques -->
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Promoções da Semana"
-            android:textSize="20sp"
+            android:text="Destaques"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#000000"
-            android:layout_marginBottom="16dp"/>
+            android:marginBottom="8dp" />
 
-        <!-- Lista de Promoções -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="32dp">
+            android:gravity="center">
 
-            <!-- Produto Promoção 1 -->
+            <!-- Card de Produto 1 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp">
+                android:background="#FFFFFF"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginEnd="8dp">
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_produto_promo"
-                    android:contentDescription="Promoção Produto 1"
-                    android:scaleType="centerCrop"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_box"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Caixa de Morangos" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Morangos Orgânicos"
-                    android:textColor="#000000"
+                    android:text="Caixa de Morangos"
                     android:textSize="16sp"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp"/>
+                    android:textStyle="bold"
+                    android:marginTop="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$ 8,00"
-                    android:textColor="#D32F2F"
+                    android:text="R$ 20,00"
                     android:textSize="14sp"
-                    android:gravity="center"/>
+                    android:textColor="#4CAF50" />
             </LinearLayout>
 
-            <!-- Produto Promoção 2 -->
+            <!-- Card de Produto 2 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:background="#FFFFFF"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:layout_marginStart="8dp">
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_produto_promo"
-                    android:contentDescription="Promoção Produto 2"
-                    android:scaleType="centerCrop"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_jam"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Pote de Geleia" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Geleia de Morango"
-                    android:textColor="#000000"
+                    android:text="Geleia Artesanal"
                     android:textSize="16sp"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp"/>
+                    android:textStyle="bold"
+                    android:marginTop="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="R$ 15,00"
-                    android:textColor="#D32F2F"
                     android:textSize="14sp"
-                    android:gravity="center"/>
+                    android:textColor="#4CAF50" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Botão para ver todos os produtos -->
-        <Button
-            android:id="@+id/buttonVerProdutos"
+        <!-- Botões de Navegação -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ver Todos os Produtos"
-            android:textColor="#FFFFFF"
-            android:background="#D32F2F"
-            android:layout_marginTop="16dp"/>
+            android:orientation="vertical"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/btnVerProdutos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver Todos os Produtos"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnVerPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Meus Pedidos"
+                android:backgroundTint="#FFC107"
+                android:textColor="#FFFFFF"
+                android:padding="12dp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

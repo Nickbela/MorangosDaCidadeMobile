@@ -101,7 +101,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Comprar"
-                        android:background="#D32F2F"
+                        android:background="#f46b4c"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
