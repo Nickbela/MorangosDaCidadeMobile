@@ -21,8 +21,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        EditText input_email = findViewById(R.id.input_email);
-        EditText input_senha = findViewById(R.id.input_senha);
+        EditText input_email = findViewById(R.id.editTextEmail);
+        EditText input_senha = findViewById(R.id.editTextPassword);
         Button btn_login = findViewById(R.id.btn_login);
         TextView textViewSignUp = findViewById(R.id.textViewSignUp);
 
@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Redireciona para a tela de cadastro
-                Intent intent = new Intent(Login.this, CadastroActivity.class);
+                Intent intent = new Intent(Login.this, Cadastro.class);
                 startActivity(intent);
             }
         });
@@ -61,7 +61,7 @@ public class Login extends AppCompatActivity {
         // Chama o método de login do backend (Classe CadastroLogin)
         if (CadastroLogin.login(email, senha)) {
             // Login bem-sucedido, prossiga para a próxima tela
-            Intent intent = new Intent(Login.this, MainActivity.class);
+            Intent intent = new Intent(Login.this, Homepage.class);
             startActivity(intent);
             finish();
         } else {

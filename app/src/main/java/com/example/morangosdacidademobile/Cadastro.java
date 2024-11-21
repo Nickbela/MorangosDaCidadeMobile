@@ -72,7 +72,7 @@ public class Cadastro extends AppCompatActivity {
                     Toast.makeText(Cadastro.this, "Cliente cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
 
                     // Opcional: Navegar para outra tela após o cadastro
-                    Intent intent = new Intent(Cadastro.this, ProximaActivity.class);
+                    Intent intent = new Intent(Cadastro.this, Homepage.class);
                     startActivity(intent);
                     finish(); // Opcional: encerra a tela de cadastro
                 }

@@ -2,7 +2,7 @@ package RegrasDeNegocio.Métodos;
 
     import java.util.ArrayList;
     import java.util.List;
-    import RegrasDeNegocio.Entity.ItemCarrinho;
+
     import RegrasDeNegocio.Entity.Produto;
 
 public class Carrinho {
@@ -34,13 +34,14 @@ public class Carrinho {
         }
 
         // Método para calcular o valor total do carrinho
-        public double calcularTotal() {
-            double total = 0.0;
-            for (ItemCarrinho item : itens) {
-                total += item.calcularTotalItem();
+        private double calcularTotal(List<Produto> produtos) {
+            double total = 0;
+            for (Produto produto : produtos) {
+                total += produto.getPreco() * produto.getQuantidade();
             }
             return total;
         }
+
     }
 
 
