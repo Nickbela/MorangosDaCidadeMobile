@@ -62,13 +62,13 @@
                 <EditText
                     android:id="@+id/editQuantidadeProduto"
                     android:layout_width="50dp"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/input_background"
+                    android:gravity="center"
                     android:hint="Qtd"
                     android:inputType="number"
-                    android:gravity="center"
-                    android:background="@drawable/input_background"
-                    android:textColor="#000000"
-                    android:layout_marginEnd="16dp" />
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/buttonComprarProduto"
