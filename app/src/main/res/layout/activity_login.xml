@@ -11,6 +11,15 @@
     tools:context=".Login">
 
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="middle"
+        android:text="Acesse sua conta"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp" />
+
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
@@ -47,15 +56,11 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp" />
 
-    <TextView
-        android:id="@+id/textViewSignUp"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_cadastre"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:text="Cadastre-se aqui"
-        android:textColor="#f46b4c"
-        android:textStyle="bold" />
+        android:text="Cadastre-se" />
 
 
 </LinearLayout>

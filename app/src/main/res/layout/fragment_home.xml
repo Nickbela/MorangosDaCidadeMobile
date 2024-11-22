@@ -24,7 +24,7 @@
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bem-vindo à Fazenda de Morangos!"
+        android:text="Bem-vindo à Fazenda Morangos da Cidade!"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#333333"
