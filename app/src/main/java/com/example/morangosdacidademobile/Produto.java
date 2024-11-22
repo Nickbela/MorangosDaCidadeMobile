@@ -1,45 +1,87 @@
 package com.example.morangosdacidademobile;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.EditText;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.text.Editable;
+import android.text.TextWatcher;
 import com.example.morangosdacidademobile.adapters.CarrinhoAdapter;
-
+import RegrasDeNegocio.Entity.ProdutoEntity;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Produto extends AppCompatActivity {
 
+    private RecyclerView recyclerView;
+    private CarrinhoAdapter adapter;
+    private List<ProdutoEntity> listaProdutos; // Lista de produtos completa
+    private List<ProdutoEntity> listaFiltrada;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_produto);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerViewProdutos);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        List<Produto> produtos = Arrays.asList(
-                new Produto("Morango Albion", 150.00, R.mipmap.ic_albion_foreground),
-                new Produto("Morango Capri", 185.00, R.mipmap.ic_capri_foreground),
-                new Produto("Morango Diamante", 190.00, R.mipmap.ic_diamante_foreground),
-                new Produto("Morango Bourbon", 210.00, R.mipmap.ic_bourbon_foreground)
+        // Inicializando a lista de produtos
+        listaProdutos = Arrays.asList(
+                new ProdutoEntity("Morango Albion", 150.00, 10,R.mipmap.ic_albion_foreground),
+                new ProdutoEntity("Morango Capri", 185.00, 10,R.mipmap.ic_capri_foreground),
+                new ProdutoEntity("Morango Diamante", 190.00,10, R.mipmap.ic_diamante_foreground),
+                new ProdutoEntity("Morango Bourbon", 210.00, 10,R.mipmap.ic_bourbon_foreground)
         );
 
-        CarrinhoAdapter adapter = new CarrinhoAdapter(produtos);
+        listaFiltrada = new ArrayList<>(listaProdutos); // Inicializando a lista filtrada
+
+        recyclerView = findViewById(R.id.recyclerViewProdutos);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Inicializando o adapter com a lista completa
+        adapter = new CarrinhoAdapter(listaFiltrada);
         recyclerView.setAdapter(adapter);
 
+        // EditText de pesquisa
+        EditText editTextSearch = findViewById(R.id.editTextSearch);
+        editTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+                // Não é necessário fazer nada aqui
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // Filtrar produtos conforme o texto
+                filtrarProdutos(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // Não é necessário fazer nada aqui
+            }
+        });
+    }
+
+    // Método para filtrar os produtos com base no nome
+    private void filtrarProdutos(String query) {
+        listaFiltrada.clear();  // Limpa a lista de resultados filtrados
+
+        if (query.isEmpty()) {
+            listaFiltrada.addAll(listaProdutos);  // Se a pesquisa estiver vazia, mostra todos os produtos
+        } else {
+            for (ProdutoEntity produto : listaProdutos) {
+                if (produto.getNome().toLowerCase().contains(query.toLowerCase())) {
+                    listaFiltrada.add(produto);  // Adiciona o produto à lista filtrada
+                }
+            }
+        }
+
+        // Atualiza o adapter com a lista filtrada
+        adapter.notifyDataSetChanged();  // Notifica que a lista foi atualizada
     }
 }

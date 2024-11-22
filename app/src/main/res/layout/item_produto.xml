@@ -16,18 +16,17 @@
         android:padding="16dp"
         android:gravity="center_vertical">
 
-        <!-- Imagem do Produto -->
+        <!-- Imagem do ProdutoEntity -->
         <ImageView
             android:id="@+id/imageProduto"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@mipmap/ic_capri_foreground"
-            android:scaleType="centerCrop"
+            android:layout_marginEnd="16dp"
             android:contentDescription="Imagem do Produto"
             android:elevation="2dp"
-            android:layout_marginEnd="16dp" />
+            android:scaleType="centerCrop" />
 
-        <!-- Detalhes do Produto -->
+        <!-- Detalhes do ProdutoEntity -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"

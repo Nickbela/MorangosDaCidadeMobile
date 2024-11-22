@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.morangosdacidademobile.Services.ClienteApiService;
+
+import RegrasDeNegocio.Entity.Cliente;
 import RegrasDeNegocio.Métodos.CadastroLogin;
 
 public class Login extends AppCompatActivity {
@@ -52,21 +55,30 @@ public class Login extends AppCompatActivity {
 
         // Validação de formato de e-mail
         if (isEmailValido(email)) {
-            input_email.setError(null); // Limpa erros se o formato do e-mail é válido
+            input_email.setError(null); // Limpa erros se o formato do e-mail for válido
         } else {
             input_email.setError("Formato de e-mail inválido!");
-            return; // Interrompe a execução se o e-mail é inválido
+            return; // Interrompe a execução se o e-mail for inválido
         }
 
-        // Chama o método de login do backend (Classe CadastroLogin)
-        if (CadastroLogin.login(email, senha)) {
-            // Login bem-sucedido, prossiga para a próxima tela
-            Intent intent = new Intent(Login.this, Homepage.class);
-            startActivity(intent);
-            finish();
-        } else {
-            // Login falhou, exiba uma mensagem de erro
-            Toast.makeText(Login.this, "Identificador (CPF ou email) ou senha inválidos.", Toast.LENGTH_SHORT).show();
+        // Chama o método de login no backend via API (Classe CadastroLogin)
+        try {
+            Cliente cliente = ClienteApiService.getClienteByLogin(email, senha); // Chama a API para autenticar o cliente
+
+            if (cliente != null) {
+                // Login bem-sucedido, prossiga para a próxima tela
+                Intent intent = new Intent(Login.this, Homepage.class);
+                startActivity(intent);
+                finish();
+            } else {
+                // Login falhou, exiba uma mensagem de erro
+                Toast.makeText(Login.this, "Identificador (e-mail) ou senha inválidos.", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            // Caso haja um erro na requisição à API
+            e.printStackTrace();
+            Toast.makeText(Login.this, "Erro ao conectar com a API. Tente novamente.", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
