@@ -32,17 +32,17 @@ public class Cadastro extends AppCompatActivity {
             return insets;
         });
 
-        EditText input_nome = findViewById(R.id.input_nome);
-        EditText input_email = findViewById(R.id.input_email);
-        EditText input_senha = findViewById(R.id.input_senha);
-        EditText input_cpf = findViewById(R.id.input_cpf);
-        Button btn_salvar = findViewById(R.id.btn_cadastrar);
-        EditText input_telefone = findViewById(R.id.input_telefone);
-        EditText input_rua = findViewById(R.id.input_rua);
-        EditText input_cidade = findViewById(R.id.input_cidade);
-        EditText input_estado = findViewById(R.id.input_estado);
-        EditText input_cep = findViewById(R.id.input_cep);
-        EditText input_numero = findViewById(R.id.input_numero);
+        EditText input_nome = findViewById(R.id.etNome);
+        EditText input_email = findViewById(R.id.etEmail);
+        EditText input_senha = findViewById(R.id.etSenha);
+        EditText input_cpf = findViewById(R.id.etCpf);
+        Button btn_salvar = findViewById(R.id.btnCadastrar);
+        EditText input_telefone = findViewById(R.id.etTelefone);
+        EditText input_rua = findViewById(R.id.etRua);
+        EditText input_cidade = findViewById(R.id.etCidade);
+        EditText input_estado = findViewById(R.id.etEstado);
+        EditText input_cep = findViewById(R.id.etCEP);
+        EditText input_numero = findViewById(R.id.etNumero);
 
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override

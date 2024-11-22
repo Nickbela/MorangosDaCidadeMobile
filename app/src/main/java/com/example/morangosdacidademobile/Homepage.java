@@ -1,5 +1,6 @@
 package com.example.morangosdacidademobile;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Homepage extends AppCompatActivity {
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +26,7 @@ public class Homepage extends AppCompatActivity {
             return insets;
         });
 
-        Button btnVerProdutos = findViewById(btnVerProdutos);
-        Button btnVerPedidos = findViewById(btnVerPedidos);
+        Button btnVerProdutos = findViewById(R.id.btnVerProdutos);
 
         btnVerProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
