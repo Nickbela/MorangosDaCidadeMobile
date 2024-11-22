@@ -13,6 +13,10 @@
         android:theme="@style/Theme.MorangosDaCidadeMobile"
         tools:targetApi="31">
         <activity
+            android:name=".Sucesso"
+            android:exported="false"
+            android:label="@string/title_activity_sucesso" />
+        <activity
             android:name=".Cadastro"
             android:exported="false"
             android:label="@string/title_activity_cadastro" />

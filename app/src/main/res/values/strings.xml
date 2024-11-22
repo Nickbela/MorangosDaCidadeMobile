@@ -70,4 +70,5 @@
     <string name="title_activity_pagamento">Pagamento</string>
     <string name="title_activity_perfil">Perfil</string>
     <string name="title_activity_cadastro">Cadastro</string>
+    <string name="title_activity_sucesso">Sucesso</string>
 </resources>
