@@ -42,11 +42,11 @@
             android:exported="false"
             android:theme="@style/Theme.MorangosDaCidadeMobile" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".Login"
             android:exported="false"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".Produtos"
+            android:name=".Produto"
             android:exported="false"
             android:label="@string/title_activity_produtos"
             android:theme="@style/Theme.MorangosDaCidadeMobile.NoActionBar" />

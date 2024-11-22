@@ -5,19 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.morangosdacidademobile.Perfil
-
-    <!-- Banner de Boas-Vindas -->
-    <ImageView
-        android:id="@+id/ivProfileBanner"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        android:src="@mipmap/ic_profile_banner"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    tools:context="com.example.morangosdacidademobile.Perfil">
 
     <!-- Título de boas-vindas -->
     <TextView
@@ -28,12 +16,10 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="#4CAF50"
-        app:layout_constraintTop_toBottomOf="@id/ivProfileBanner"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginTop="32dp" />
 
     <!-- Seção de Dados Pessoais -->
     <TextView
@@ -124,19 +110,37 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- Botão para editar perfil -->
-    <Button
-        android:id="@+id/btnEditProfile"
-        android:layout_width="wrap_content"
+    <!-- Botões de Ação -->
+    <LinearLayout
+        android:id="@+id/actionButtons"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Editar Perfil"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#4CAF50"
-        app:cornerRadius="24dp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/etEndereco"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
-        android:layout_marginHorizontal="16dp" />
+        android:gravity="center">
+
+        <!-- Botão para editar perfil -->
+        <Button
+            android:id="@+id/btnEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar Perfil"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginEnd="8dp" />
+
+        <!-- Botão para excluir cadastro -->
+        <Button
+            android:id="@+id/btnDeleteProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Excluir Cadastro"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#F44336"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
