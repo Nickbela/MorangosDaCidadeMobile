@@ -10,17 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.morangosdacidademobile.R;
-import RegrasDeNegocio.Entity.Produto;
+import RegrasDeNegocio.Entity.ProdutoEntity;
 
 import java.util.List;
 
 public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.CarrinhoViewHolder> {
 
-    private List<Produto> produtos;
+    private List<ProdutoEntity> produtos;
 
     // Construtor para receber a lista de produtos
-    public CarrinhoAdapter(List<Produto> produtos) {
+    /*public CarrinhoAdapter(List<ProdutoEntity> produtos) {
         this.produtos = produtos;
+    }*/
+
+    public CarrinhoAdapter(List<ProdutoEntity> produtos) {
     }
 
     // ViewHolder para vincular os dados às views
@@ -52,7 +55,7 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
     @Override
     public void onBindViewHolder(@NonNull CarrinhoViewHolder holder, int position) {
         // Obter o produto na posição atual
-        Produto produto = produtos.get(position);
+        ProdutoEntity produto = produtos.get(position);
 
         // Configurar os dados nas views
         holder.nome.setText(produto.getNome());
@@ -68,14 +71,8 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
         });
     }
 
-    private List<Produto> produtos;
-
-    public CarrinhoAdapter(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
     // Adicionar item
-    public void adicionarItem(Produto produto) {
+    public void adicionarItem(ProdutoEntity produto) {
         produtos.add(produto);
         notifyItemInserted(produtos.size() - 1);
     }
@@ -88,14 +85,14 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
     }
 
     // Editar item
-    public void editarItem(int position, Produto produtoAtualizado) {
+    public void editarItem(int position, ProdutoEntity produtoAtualizado) {
         produtos.set(position, produtoAtualizado);
         notifyItemChanged(position);
     }
 
     // Atualizar quantidade
     public void atualizarQuantidade(int position, int novaQuantidade) {
-        Produto produto = produtos.get(position);
+        ProdutoEntity produto = produtos.get(position);
         produto.setQuantidade(novaQuantidade);
         notifyItemChanged(position);
     }

@@ -1,12 +1,12 @@
 package RegrasDeNegocio.Entity;
 
-public class Produto {
+public class ProdutoEntity {
     private String nome;
     private double preco;
     private int quantidade;
     private int imagemId;
 
-    public Produto(String nome, double preco, int quantidade, int imagemId) {
+    public ProdutoEntity(String nome, double preco, int quantidade, int imagemId) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
@@ -39,7 +39,8 @@ public class Produto {
     public int getImagemId(){
         return imagemId;
     }
-    public void setImagemId(){
+    public void setImagemId(int imagemId){
         this.imagemId = imagemId;
     }
+
 }

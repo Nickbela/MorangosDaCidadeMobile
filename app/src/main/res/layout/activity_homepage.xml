@@ -64,7 +64,7 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-            <!-- Card de Produto 1 -->
+            <!-- Card de ProdutoEntity 1 -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                     android:textColor="#4CAF50" />
             </LinearLayout>
 
-            <!-- Card de Produto 2 -->
+            <!-- Card de ProdutoEntity 2 -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
