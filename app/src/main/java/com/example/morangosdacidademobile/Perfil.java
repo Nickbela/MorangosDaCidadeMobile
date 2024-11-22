@@ -10,7 +10,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.morangosdacidademobile.databinding.ActivityPerfilBinding;
+import com.example.morangosdacidademobile.databinding.ActivityPerfil;
 
 public class Perfil extends AppCompatActivity {
 
