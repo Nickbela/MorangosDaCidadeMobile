@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/profile"
-        android:icon="@mipmap/ic_perfil_foreground"
+        android:icon="@mipmap/ic_perfil1_foreground"
         android:title="Perfil" />
 
 </menu>
