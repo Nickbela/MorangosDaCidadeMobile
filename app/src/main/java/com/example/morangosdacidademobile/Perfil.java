@@ -10,17 +10,17 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.morangosdacidademobile.databinding.ActivityCadastroBinding;
+import com.example.morangosdacidademobile.databinding.ActivityPerfilBinding;
 
-public class Cadastro extends AppCompatActivity {
+public class Perfil extends AppCompatActivity {
 
-    private ActivityCadastroBinding binding;
+    private ActivityPerfilBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityCadastroBinding.inflate(getLayoutInflater());
+        binding = ActivityPerfilBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -29,7 +29,7 @@ public class Cadastro extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_cadastro);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_perfil);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
