@@ -13,7 +13,7 @@ public class Pagamento extends AppCompatActivity {
 
 private ActivityPagamentoBinding binding;
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -29,6 +29,6 @@ private ActivityPagamentoBinding binding;
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_pagamento);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-    }
+    }*/
 
 }

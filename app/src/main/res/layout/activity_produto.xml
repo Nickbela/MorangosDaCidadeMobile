@@ -40,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/editTextSearch"
-        android:padding="16dp"
-        android:clipToPadding="false" />
+        android:layout_marginTop="-60dp"
+        android:clipToPadding="false"
+        android:padding="16dp" />
 </RelativeLayout>

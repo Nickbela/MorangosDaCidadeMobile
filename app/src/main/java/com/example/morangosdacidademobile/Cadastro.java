@@ -32,17 +32,17 @@ public class Cadastro extends AppCompatActivity {
             return insets;
         });
 
-        EditText input_nome = findViewById(R.id.etNome);
+        EditText input_nome = findViewById(R.id.etName);
         EditText input_email = findViewById(R.id.etEmail);
-        EditText input_senha = findViewById(R.id.etSenha);
+        EditText input_senha = findViewById(R.id.etPassword);
         EditText input_cpf = findViewById(R.id.etCpf);
-        Button btn_salvar = findViewById(R.id.btnCadastrar);
-        EditText input_telefone = findViewById(R.id.etTelefone);
-        EditText input_rua = findViewById(R.id.etRua);
-        EditText input_cidade = findViewById(R.id.etCidade);
-        EditText input_estado = findViewById(R.id.etEstado);
-        EditText input_cep = findViewById(R.id.etCEP);
-        EditText input_numero = findViewById(R.id.etNumero);
+        Button btn_salvar = findViewById(R.id.btnRegister);
+        EditText input_telefone = findViewById(R.id.etPhone);
+        EditText input_rua = findViewById(R.id.etStreet);
+        EditText input_cidade = findViewById(R.id.etCity);
+        EditText input_estado = findViewById(R.id.etState);
+        EditText input_cep = findViewById(R.id.etCep);
+        EditText input_numero = findViewById(R.id.etNumber);
 
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class Cadastro extends AppCompatActivity {
                     }
 
                     // Opcional: Navegar para outra tela após o cadastro
-                    Intent intent = new Intent(Cadastro.this, Homepage.class);
+                    Intent intent = new Intent(Cadastro.this, MainActivity.class);
                     startActivity(intent);
                     finish(); // Opcional: encerra a tela de cadastro
                 }

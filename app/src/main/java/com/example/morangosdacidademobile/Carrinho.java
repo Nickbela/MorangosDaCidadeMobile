@@ -13,7 +13,7 @@ import RegrasDeNegocio.Entity.ProdutoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarrinhoActivity extends AppCompatActivity {
+public class Carrinho extends AppCompatActivity {
 
     private RecyclerView recyclerViewCarrinho;
     private CarrinhoAdapter carrinhoAdapter;
@@ -28,7 +28,7 @@ public class CarrinhoActivity extends AppCompatActivity {
         carrinho = new ArrayList<>();
 
         // Configurar o RecyclerView do carrinho
-        recyclerViewCarrinho = findViewById(R.id.recyclerViewCarrinho);
+        recyclerViewCarrinho = findViewById(R.id.RecyclerViewCarrinho);
         recyclerViewCarrinho.setLayoutManager(new LinearLayoutManager(this));
 
         // Inicializar o adapter com a lista de carrinho

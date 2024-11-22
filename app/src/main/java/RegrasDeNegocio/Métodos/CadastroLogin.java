@@ -16,7 +16,7 @@ public class CadastroLogin {
         this.clientes = new ArrayList<>();
     }
 
-    public static void cadastrarCliente(Cliente cliente) {
+    public void cadastrarCliente(Cliente cliente) {
         this.clientes.add(cliente);
     }
 

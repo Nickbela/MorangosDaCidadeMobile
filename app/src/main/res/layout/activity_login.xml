@@ -54,7 +54,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"
         android:text="Cadastre-se aqui"
-        android:textColor="@color/purple_500"
+        android:textColor="#f46b4c"
         android:textStyle="bold" />
 
 

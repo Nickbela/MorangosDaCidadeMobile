@@ -67,7 +67,7 @@ public class Login extends AppCompatActivity {
 
             if (cliente != null) {
                 // Login bem-sucedido, prossiga para a próxima tela
-                Intent intent = new Intent(Login.this, Homepage.class);
+                Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             } else {

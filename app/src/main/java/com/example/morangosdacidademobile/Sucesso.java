@@ -14,7 +14,7 @@ import com.example.morangosdacidademobile.databinding.ActivitySucessoBinding;
 
 public class Sucesso extends AppCompatActivity {
 
-    private ActivitySucessoBinding binding;
+    /*private ActivitySucessoBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,6 @@ public class Sucesso extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_sucesso);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-    }
+    }*/
 
 }
