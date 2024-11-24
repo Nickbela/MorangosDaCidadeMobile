@@ -46,20 +46,6 @@
             android:exported="false"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".Produto"
-            android:exported="false"
-            android:label="@string/title_activity_produtos"
-            android:theme="@style/Theme.MorangosDaCidadeMobile.NoActionBar" />
-        <activity
-            android:name=".Homepage"
-            android:exported="false" />
-        <activity
-            android:name=".LoginTeste"
-            android:exported="false" />
-        <activity
-            android:name=".Login1"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

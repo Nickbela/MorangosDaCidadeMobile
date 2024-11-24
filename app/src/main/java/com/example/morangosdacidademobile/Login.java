@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         EditText input_email = findViewById(R.id.editTextEmail);
         EditText input_senha = findViewById(R.id.editTextPassword);
         Button btn_login = findViewById(R.id.btn_login);
-        TextView textViewSignUp = findViewById(R.id.textViewSignUp);
+        TextView textViewSignUp = findViewById(R.id.btn_cadastre);
 
         // Funcionalidades do botão de login
         btn_login.setOnClickListener(new View.OnClickListener() {
