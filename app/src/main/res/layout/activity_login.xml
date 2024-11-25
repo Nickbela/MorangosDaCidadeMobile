@@ -1,66 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center"
-    tools:context=".Login">
+    android:background="@drawable/background3">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="310dp"
+        android:layout_height="246dp"
+        android:layout_centerHorizontal="true"
+        tools:srcCompat="@mipmap/ic_logonovo1_foreground"
+        android:contentDescription="@string/logo_description" />
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/logintitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="middle"
-        android:text="Acesse sua conta"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="20sp" />
+        android:text="@string/acesse"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginTop="250dp" />
+
 
     <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
+        android:id="@+id/email"
+        android:layout_width="375dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/logintitle"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/baseline_email_24"
+        android:drawablePadding="10dp"
+        android:hint="@string/e_mail"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:layout_centerHorizontal="true"
         android:inputType="textEmailAddress"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
-
+        android:autofillHints="emailAddress"/>
 
     <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Senha"
+        android:id="@+id/senha"
+        android:layout_width="375dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/email"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/baseline_senha_24"
+        android:drawablePadding="10dp"
+        android:hint="@string/senha"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:layout_centerHorizontal="true"
         android:inputType="textPassword"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
-
+        android:autofillHints="password"/>
 
     <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Entrar"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
+        android:id="@+id/btn_entrar"
+        android:layout_width="165dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/senha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#710808"
+        android:text="@string/entrar1" />
 
-    <!-- Texto com link para cadastro -->
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Não tem uma conta? "
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/btn_cadastre"
+        android:id="@+id/textview2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastre-se" />
+        android:text="@string/naotemconta"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/btn_entrar"
+        android:layout_marginTop="15dp"
+        android:gravity="center" />
+    <TextView
+        android:id="@+id/cadastre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cadastro"
+        android:textSize="15sp"
+        android:textColor="#710808"
+        android:layout_below="@id/textview2"
+        android:gravity="center" />
 
-
-</LinearLayout>
+</RelativeLayout>

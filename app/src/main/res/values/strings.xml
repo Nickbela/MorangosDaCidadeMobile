@@ -71,4 +71,24 @@
     <string name="title_activity_perfil">Perfil</string>
     <string name="title_activity_cadastro">Cadastro</string>
     <string name="title_activity_sucesso">Sucesso</string>
+    <string name="acesse">Acesse sua conta</string>
+    <string name="e_mail">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="criar_conta">CRIAR CONTA</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="naotemconta">Não tem uma conta?</string>
+    <string name="cadastro"> <u>Cadastre-se aqui</u></string>
+    <string name="entrar1">Entrar</string>
+    <string name="logo_description">Logotipo da Fazenda Morangos da Cidade</string>
+    <string name="criesuaconta">Crie sua conta</string>
+    <string name="nome">Nome</string>
+    <string name="cep">CEP</string>
+    <string name="telefone">Telefone</string>
+    <string name="cpf">CPF</string>
+    <string name="rua">Rua</string>
+    <string name="numero">Número</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+    <string name="registrar">Registrar</string>
+
 </resources>

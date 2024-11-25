@@ -24,10 +24,10 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        EditText input_email = findViewById(R.id.editTextEmail);
-        EditText input_senha = findViewById(R.id.editTextPassword);
-        Button btn_login = findViewById(R.id.btn_login);
-        TextView textViewSignUp = findViewById(R.id.btn_cadastre);
+        EditText input_email = findViewById(R.id.email);
+        EditText input_senha = findViewById(R.id.senha);
+        Button btn_login = findViewById(R.id.btn_entrar);
+        TextView textViewSignUp = findViewById(R.id.cadastre);
 
         // Funcionalidades do botão de login
         btn_login.setOnClickListener(new View.OnClickListener() {

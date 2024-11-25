@@ -32,17 +32,17 @@ public class Cadastro extends AppCompatActivity {
             return insets;
         });
 
-        EditText input_nome = findViewById(R.id.etName);
-        EditText input_email = findViewById(R.id.etEmail);
-        EditText input_senha = findViewById(R.id.etPassword);
-        EditText input_cpf = findViewById(R.id.etCpf);
-        Button btn_salvar = findViewById(R.id.btnRegister);
-        EditText input_telefone = findViewById(R.id.etPhone);
-        EditText input_rua = findViewById(R.id.etStreet);
-        EditText input_cidade = findViewById(R.id.etCity);
-        EditText input_estado = findViewById(R.id.etState);
-        EditText input_cep = findViewById(R.id.etCep);
-        EditText input_numero = findViewById(R.id.etNumber);
+        EditText input_nome = findViewById(R.id.nome);
+        EditText input_email = findViewById(R.id.email);
+        EditText input_senha = findViewById(R.id.senha);
+        EditText input_cpf = findViewById(R.id.cpf);
+        Button btn_salvar = findViewById(R.id.btn_registrar);
+        EditText input_telefone = findViewById(R.id.telefone);
+        EditText input_rua = findViewById(R.id.rua);
+        EditText input_cidade = findViewById(R.id.cidade);
+        EditText input_estado = findViewById(R.id.estado);
+        EditText input_cep = findViewById(R.id.cep);
+        EditText input_numero = findViewById(R.id.numero_rua);
 
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
