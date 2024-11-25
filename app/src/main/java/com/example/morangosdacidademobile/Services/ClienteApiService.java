@@ -14,6 +14,7 @@ import java.io.BufferedWriter;
 public class ClienteApiService {
 
     private static final String BASE_URL = "http://10.0.2.2:8085/api/clientes";
+    //private static final String BASE_URL = "http://localhost:8085/api/clientes";
 
     public static Cliente getClienteByLogin(String login, String senha) throws Exception {
         URL url = new URL(BASE_URL + "/listar?login=" + login + "&senha=" + senha); // Cria a URL com parâmetros de login e senha.
