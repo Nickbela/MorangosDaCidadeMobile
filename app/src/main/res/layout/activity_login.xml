@@ -9,11 +9,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="310dp"
-        android:layout_height="246dp"
+        android:layout_width="297dp"
+        android:layout_height="194dp"
         android:layout_centerHorizontal="true"
-        tools:srcCompat="@mipmap/ic_logonovo1_foreground"
-        android:contentDescription="@string/logo_description" />
+        android:contentDescription="@string/logo_description"
+        android:src="@drawable/logonovo1"
+        android:layout_marginTop="50dp"/>
 
 
     <TextView
