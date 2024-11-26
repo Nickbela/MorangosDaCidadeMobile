@@ -60,8 +60,9 @@ public class Cadastro extends AppCompatActivity {
 
 
                 // Validar o email
-                if (isEmailValido(email)) {
+                if (!isEmailValido(email)) {
                     input_email.setError("Email inválido");
+                    return;
                 } else {
                     // Cria um novo cliente
                     Cliente novoCliente = new Cliente(
@@ -92,7 +93,7 @@ public class Cadastro extends AppCompatActivity {
                     }
 
                     // Opcional: Navegar para outra tela após o cadastro
-                    Intent intent = new Intent(Cadastro.this, MainActivity.class);
+                    Intent intent = new Intent(Cadastro.this, Login.class);
                     startActivity(intent);
                     finish(); // Opcional: encerra a tela de cadastro
                 }
