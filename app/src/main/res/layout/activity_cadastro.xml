@@ -1,203 +1,200 @@
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/background">
 
-    <RelativeLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/logintitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/criesuaconta"
-        android:textSize="40sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:layout_marginTop="200dp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <EditText
-        android:id="@+id/nome"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/logintitle"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="32dp"
-        android:autofillHints="name"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/baseline_person_outline_24"
-        android:drawablePadding="10dp"
-        android:hint="@string/nome"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080" />
+        <TextView
+            android:id="@+id/logintitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/criesuaconta"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:layout_marginTop="200dp" />
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/e_mail"
-        android:inputType="textEmailAddress"
-        android:autofillHints="emailAddress"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/baseline_email_24"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-        android:layout_below="@id/nome" />
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/nome"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/baseline_person_outline_24"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#808080"
+            android:inputType="textPersonName"
+            android:autofillHints="name"/>
 
-    <EditText
-        android:id="@+id/senha"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/senha"
-        android:inputType="textPassword"
-        android:autofillHints="password"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/baseline_senha_24"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-        android:layout_below="@id/email" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/e_mail"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/baseline_email_24"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#808080"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress" />
 
-    <EditText
-        android:id="@+id/cpf"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/cpf"
-        android:inputType="number"
-        android:autofillHints="username"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/baseline_assignment_24"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-         android:layout_below="@id/senha" />
+        <EditText
+            android:id="@+id/senha"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/senha"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/baseline_senha_24"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#808080"
+            android:inputType="textPassword"
+            android:autofillHints="password" />
 
-    <EditText
-        android:id="@+id/telefone"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/telefone"
-        android:inputType="phone"
-        android:autofillHints="phone"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/baseline_phone_24"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-        android:layout_below="@id/cpf" />
+        <EditText
+            android:id="@+id/cpf"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/cpf"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/baseline_assignment_24"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#808080"
+            android:inputType="number"
+            android:importantForAutofill="no"/>
 
-    <EditText
-        android:id="@+id/cep"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/cep"
-        android:inputType="number"
-        android:autofillHints="postalCode"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/baseline_location_24"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-        android:layout_below="@id/telefone" />
+        <EditText
+            android:id="@+id/telefone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/telefone"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/baseline_phone_24"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#808080"
+            android:inputType="phone"
+            android:autofillHints="phone"/>
 
-    <EditText
-        android:id="@+id/rua"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/rua"
-        android:inputType="text"
-        android:autofillHints="streetAddress"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/baseline_home_24"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-        android:layout_below="@id/cep" />
+        <EditText
+            android:id="@+id/cep"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/cep"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/baseline_location_24"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#808080"
+            android:inputType="number"
+            android:autofillHints="postalCode"/>
 
-    <EditText
-        android:id="@+id/numero_rua"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/numero"
-        android:inputType="number"
-        android:autofillHints="addressLine2"
-        android:background="@drawable/edittext_background"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-        android:layout_below="@id/rua" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:weightSum="2">
 
-    <EditText
-        android:id="@+id/cidade"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/cidade"
-        android:inputType="text"
-        android:autofillHints="addressCity"
-        android:background="@drawable/edittext_background"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-        android:layout_below="@id/numero_rua" />
+            <EditText
+                android:id="@+id/rua"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:hint="@string/rua"
+                android:background="@drawable/edittext_background"
+                android:drawableStart="@drawable/baseline_home_24"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#808080"
+                android:inputType="text"
+                android:autofillHints="streetAddress" />
 
-    <EditText
-        android:id="@+id/estado"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/estado"
-        android:inputType="text"
-        android:autofillHints="addressState"
-        android:background="@drawable/edittext_background"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
-        android:layout_below="@id/cidade" />
+            <EditText
+                android:id="@+id/numero_rua"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="0.5"
+                android:layout_marginStart="8dp"
+                android:hint="@string/numero"
+                android:background="@drawable/edittext_background"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#808080"
+                android:inputType="number"
+                android:autofillHints="addressLine2" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_registrar"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/registrar"
-        android:textColor="@android:color/white"
-        android:backgroundTint="#710808"
-        android:layout_below="@id/estado"
-        android:layout_marginBottom="30dp"/>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/cidade"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:hint="@string/cidade"
+                android:background="@drawable/edittext_background"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#808080"
+                android:inputType="text"
+                android:autofillHints="addressLocality" />
+
+            <EditText
+                android:id="@+id/estado"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="0.5"
+                android:layout_marginStart="8dp"
+                android:hint="@string/estado"
+                android:background="@drawable/edittext_background"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#808080"
+                android:inputType="text"
+                android:autofillHints="addressRegion"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_registrar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/registrar"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#710808" />
+    </LinearLayout>
 </ScrollView>
