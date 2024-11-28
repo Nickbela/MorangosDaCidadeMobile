@@ -1,37 +1,52 @@
 package com.example.morangosdacidademobile;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.view.MenuItem;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
+import com.example.morangosdacidademobile.ui.CarrinhoFragment;
 import com.example.morangosdacidademobile.ui.home.HomeFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Map<Integer, Fragment> fragmentMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        // Inicializar BottomNavigationView
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Criar o mapeamento entre IDs e Fragments
+        fragmentMap = new HashMap<>();
+        fragmentMap.put(R.id.nav_home, new HomeFragment());
+        fragmentMap.put(R.id.nav_carrinho, new CarrinhoFragment());
+        fragmentMap.put(R.id.nav_perfil, new PerfilFragment());
+
+        // Configurar o listener de navegação
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Verifica se o item foi mapeado e obtém o fragment
+                Fragment selectedFragment = fragmentMap.get(item.getItemId());
+
+                // Se o fragment não for nulo, substitui o fragment atual
+                if (selectedFragment != null) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, selectedFragment)
+                            .commit();
+                    return true;
+                }
+                return false;
+            }
         });
+    }
+}
 
-        if (savedInstanceState == null) {
-            // Criar uma instância do HomeFragment (em Java, não é necessário o 'val')
-            HomeFragment homeFragment = new HomeFragment();  // Cria a instância do HomeFragment
-
-            // Inicia a transação de fragmentos para adicionar o HomeFragment
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, homeFragment)  // Substitui o fragment no contêiner
-                    .commit();
-        }
-
-
-}}

@@ -169,6 +169,13 @@
     <string name="sign_out"><u>Sign Out</u></string>
     <string name="imagem_homem_na_fazenda">Homem na fazenda</string>
     <string name="remover_item">Remover Item</string>
+    <string name="pedido_">Pedido #</string>
+    <string name="total_compra_">Total da Compra: R$ %1$s</string>
+    <string name="data_compra">Data da Compra: %1$s</string>
+    <string name="voltar_">Voltar</string>
+    <string name="carrinho">Carrinho</string>
+    <string name="home">Home</string>
+    <string name="perfil1">Perfil</string>
 
 
 </resources>
