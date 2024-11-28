@@ -1,5 +1,6 @@
 package com.example.morangosdacidademobile;
 
+import static android.content.ContentValues.TAG;
 import static RegrasDeNegocio.Métodos.CadastroLogin.isEmailValido;
 
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,18 +20,46 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.morangosdacidademobile.Services.ClienteApiService;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
 import RegrasDeNegocio.Entity.Cliente;
 
 public class Login extends AppCompatActivity {
+
+    List<Cliente> clientes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+        Log.d(TAG, "Verificando configurações de rede...");
+        new Thread(() -> {
+            try {
+                URL url = new URL("http://192.168.0.105:8085/api/clientes/login"); // URL do endpoint da API.
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection(); // Abre conexão HTTP.
+                connection.setRequestMethod("GET"); // Define o método HTTP como GET.
+                connection.connect(); // Conecta ao servidor.
+
+                int responseCode = connection.getResponseCode(); // Código de resposta da conexão.
+                if (responseCode == 200) {
+                    Log.d(TAG, "Conexão HTTP com 192.168.0.105 bem-sucedida.");
+                } else {
+                    Log.e(TAG, "Conexão HTTP falhou. Código de resposta: " + responseCode);
+                }
+                connection.disconnect(); // Fecha a conexão.
+            } catch (Exception e) {
+                Log.e(TAG, "Erro ao verificar a conexão HTTP com 192.168.0.105: " + e.getMessage());
+            }
+        }).start();
+
         EditText input_email = findViewById(R.id.email);
         EditText input_senha = findViewById(R.id.senha);
-        Button btn_login = findViewById(R.id.btn_entrar);
+        Button btn_entrar = findViewById(R.id.btn_entrar);
         TextView cadastrarTextView = findViewById(R.id.cadastre);
 
         // Configura o clique no texto "Cadastre-se aqui"
@@ -54,7 +84,7 @@ public class Login extends AppCompatActivity {
         cadastrarTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Funcionalidade do botão de login
-        btn_login.setOnClickListener(v -> realizarLogin(input_email, input_senha));
+        btn_entrar.setOnClickListener(v -> realizarLogin(input_email, input_senha));
     }
 
     ClickableSpan clickableSpan = new ClickableSpan() {
@@ -82,19 +112,23 @@ public class Login extends AppCompatActivity {
             return;
         }
 
-        try {
-            Cliente cliente = ClienteApiService.getClienteByLogin(email, senha);
+                new Thread(() -> {
+                    try {
+                        clientes = (List<Cliente>) ClienteApiService.getClienteByLogin(email, senha);
 
-            if (cliente != null) {
-                Intent intent = new Intent(Login.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
-                Toast.makeText(Login.this, "Identificador (e-mail) ou senha inválidos.", Toast.LENGTH_SHORT).show();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(Login.this, "Erro ao conectar com a API. Tente novamente.", Toast.LENGTH_SHORT).show();
-        }
+                        if (clientes != null) {
+                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(Login.this, "Identificador (e-mail) ou senha inválidos.", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(Login.this, "Erro ao conectar com a API. Tente novamente.", Toast.LENGTH_SHORT).show();
+                    }
+                }).start();
+
+
     }
 }

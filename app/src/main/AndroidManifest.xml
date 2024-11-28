@@ -5,8 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_albion"
@@ -25,7 +27,7 @@
             android:exported="false"
             android:label="@string/title_activity_cadastro" />
         <activity
-            android:name=".Perfil"
+            android:name=".PerfilFragment"
             android:exported="false"
             android:label="@string/title_activity_perfil" />
         <activity
@@ -59,5 +61,7 @@
             android:name=".MainActivity"
             android:exported="true">
         </activity>
+
     </application>
+
 </manifest>

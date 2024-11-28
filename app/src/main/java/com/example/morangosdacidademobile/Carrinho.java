@@ -1,6 +1,8 @@
 package com.example.morangosdacidademobile;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +48,17 @@ public class Carrinho extends AppCompatActivity {
 
         // Recupera a lista de produtos do carrinho que foi passada
         carrinho = (List<ProdutoEntity>) getIntent().getSerializableExtra("carrinho");
+
+        Button btnFinalizarCompra = findViewById(R.id.btnFinalizarCompra);
+        btnFinalizarCompra.setOnClickListener(v -> {
+            if (carrinho.isEmpty()) {
+                Toast.makeText(this, "Seu carrinho está vazio!", Toast.LENGTH_SHORT).show();
+            } else {
+                // Navegar para a tela de simulação de pagamento
+                Intent intent = new Intent(this, Confirmacao.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

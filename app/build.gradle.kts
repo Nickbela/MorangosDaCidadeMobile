@@ -50,5 +50,6 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.cardview)
     implementation ("androidx.fragment:fragment:1.5.5")
+
 }
 
