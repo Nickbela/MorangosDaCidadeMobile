@@ -1,6 +1,7 @@
 package RegrasDeNegocio.Entity;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente {
     private String nome;
@@ -31,6 +32,22 @@ public class Cliente {
     }
 
     public Cliente(String nome, String cpf, String email, String telefone, String senha, String rua, int numero, String cidade, String estado, String cep) {
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", email='" + email + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", senha='" + senha + '\'' +
+                ", rua='" + rua + '\'' +
+                ", numero=" + numero +
+                ", cidade='" + cidade + '\'' +
+                ", estado='" + estado + '\'' +
+                ", cep='" + cep + '\'' +
+                '}';
     }
 
 

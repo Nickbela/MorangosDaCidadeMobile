@@ -1,7 +1,10 @@
 package com.example.morangosdacidademobile.Services;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -13,79 +16,108 @@ import java.io.BufferedWriter;
 
 public class ClienteApiService {
 
-    private static final String BASE_URL = "http://10.0.2.2:8085/api/clientes";
+    private static final String BASE_URL = "http://192.168.0.105:8085/api/clientes";
     //private static final String BASE_URL = "http://localhost:8085/api/clientes";
 
-    public static Cliente getClienteByLogin(String login, String senha) throws Exception {
-        URL url = new URL(BASE_URL + "/listar?login=" + login + "&senha=" + senha); // Cria a URL com parâmetros de login e senha.
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // Abre uma conexão HTTP.
-        conn.setRequestMethod("GET"); // Define o método da requisição como GET.
-        conn.setRequestProperty("Content-Type", "application/json"); // Define o tipo de conteúdo como JSON.
+    public static Cliente getClienteByLogin(String email, String senha) throws Exception {
+        // Verificar se os parâmetros não estão vazios
+        if (email == null || email.isEmpty() || senha == null || senha.isEmpty()) {
+            throw new IllegalArgumentException("Login e senha não podem ser nulos ou vazios.");
+        }
 
-        // Buffer para ler a resposta da API.
+        // Criar a URL com parâmetros
+        URL url = new URL(BASE_URL + "/login?login=" + email + "&senha=" + senha);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET"); // Define o método da requisição como GET.
+
+        // Verificar o código de resposta
+        int responseCode = conn.getResponseCode();
+        if (responseCode != 200) {
+            throw new Exception("Erro ao buscar cliente. Código HTTP: " + responseCode);
+        }
+
+        // Buffer para ler a resposta da API
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         StringBuilder result = new StringBuilder();
         String line;
-        while ((line = reader.readLine()) != null) { // Lê cada linha da resposta.
+        while ((line = reader.readLine()) != null) {
             result.append(line);
         }
         reader.close();
 
-        // Converte a resposta para um objeto JSON e cria um cliente.
-        JSONObject jsonObject = new JSONObject(result.toString()); // Converte a resposta JSON.
+        // Converter a resposta para um objeto JSON e criar o cliente
+        JSONObject jsonObject = new JSONObject(result.toString());
+
+        // Verificar se os campos esperados existem na resposta JSON
         Cliente cliente = new Cliente();
-        cliente.setNome(jsonObject.getString("nome"));
-        cliente.setCpf(jsonObject.getString("cpf"));
-        cliente.setEmail(jsonObject.getString("email"));
-        cliente.setTelefone(jsonObject.getString("telefone"));
-        cliente.setSenha(jsonObject.getString("senha"));
-        cliente.setRua(jsonObject.getString("rua"));
-        cliente.setNumero(jsonObject.getInt("numero"));
-        cliente.setCidade(jsonObject.getString("cidade"));
-        cliente.setEstado(jsonObject.getString("estado"));
-        cliente.setCep(jsonObject.getString("cep"));
+        cliente.setNome(jsonObject.optString("nome", null));
+        cliente.setCpf(jsonObject.optString("cpf", null));
+        cliente.setEmail(jsonObject.optString("email", null));
+        cliente.setTelefone(jsonObject.optString("telefone", null));
+        cliente.setSenha(jsonObject.optString("senha", null));
+        cliente.setRua(jsonObject.optString("rua", null));
+        cliente.setNumero(jsonObject.optInt("numero", 0));
+        cliente.setCidade(jsonObject.optString("cidade", null));
+        cliente.setEstado(jsonObject.optString("estado", null));
+        cliente.setCep(jsonObject.optString("cep", null));
 
         return cliente; // Retorna o cliente.
     }
 
+
     public static String addCliente(Cliente cliente) throws Exception {
-        URL url = new URL(BASE_URL + "/adicionar"); // Cria a URL completa para a operação de adicionar.
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // Abre uma conexão HTTP.
-        conn.setRequestMethod("POST"); // Define o método da requisição como POST.
-        conn.setRequestProperty("Content-Type", "application/json"); // Define o tipo de conteúdo como JSON.
-        conn.setDoOutput(true); // Permite enviar dados na requisição.
+        URL url = new URL(BASE_URL + "/adicionar");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("POST");
+        conn.setRequestProperty("Content-Type", "application/json");
+        conn.setDoOutput(true); // Permitir envio de dados
 
-        // Cria um objeto JSON com os dados do cliente.
+        // Criar JSON do cliente
         JSONObject jsonCliente = new JSONObject();
-        jsonCliente.put("nome", cliente.getNome()); // Adiciona o nome ao objeto JSON.
-        jsonCliente.put("email", cliente.getEmail()); // Adiciona o email ao objeto JSON.
-        jsonCliente.put("cpf", cliente.getCpf()); // Adiciona o CPF ao objeto JSON.
-        jsonCliente.put("telefone", cliente.getTelefone()); // Adiciona o telefone ao objeto JSON.
-        jsonCliente.put("senha", cliente.getSenha()); // Adiciona a senha ao objeto JSON.
-        jsonCliente.put("rua", cliente.getRua()); // Adiciona a rua ao objeto JSON.
-        jsonCliente.put("numero", cliente.getNumero()); // Adiciona o número ao objeto JSON.
-        jsonCliente.put("cidade", cliente.getCidade()); // Adiciona a cidade ao objeto JSON.
-        jsonCliente.put("estado", cliente.getEstado()); // Adiciona o estado ao objeto JSON.
-        jsonCliente.put("cep", cliente.getCep()); // Adiciona o CEP ao objeto JSON.
+        jsonCliente.put("nome", cliente.getNome());
+        jsonCliente.put("email", cliente.getEmail());
+        jsonCliente.put("cpf", cliente.getCpf());
+        jsonCliente.put("telefone", cliente.getTelefone());
+        jsonCliente.put("senha", cliente.getSenha());
+        jsonCliente.put("rua", cliente.getRua());
+        jsonCliente.put("numero", cliente.getNumero());
+        jsonCliente.put("cidade", cliente.getCidade());
+        jsonCliente.put("estado", cliente.getEstado());
+        jsonCliente.put("cep", cliente.getCep());
 
-        // Envia o JSON com os dados do cliente.
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-        writer.write(jsonCliente.toString()); // Escreve o JSON no corpo da requisição.
-        writer.flush();
-        writer.close();
+        // Log para depuração
+        Log.d("JSON Enviado", jsonCliente.toString());
 
-        // Lê a resposta da API.
-        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        StringBuilder result = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) { // Lê cada linha da resposta.
-            result.append(line);
+        // Enviar dados
+        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()))) {
+            writer.write(jsonCliente.toString());
+            writer.flush();
         }
-        reader.close();
-        return result.toString(); // Retorna a resposta da API.
+
+        // Ler resposta
+        int responseCode = conn.getResponseCode();
+        InputStream is = (responseCode >= 200 && responseCode < 300)
+                ? conn.getInputStream()
+                : conn.getErrorStream();
+
+        StringBuilder result = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                result.append(line);
+            }
+        }
+
+        // Verificar resposta
+        if (responseCode >= 200 && responseCode < 300) {
+            return result.toString();
+        } else {
+            throw new Exception("Erro na API: " + responseCode + " - " + result.toString());
+        }
     }
 
-    public static String updateCliente(long id, Cliente cliente) throws Exception {
+
+    public static String updateCliente(CharSequence id, Cliente cliente) throws Exception {
         URL url = new URL(BASE_URL + "/atualizar/" + id); // Cria a URL completa para a operação de atualização.
         HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // Abre uma conexão HTTP.
         conn.setRequestMethod("PUT"); // Define o método da requisição como PUT.
