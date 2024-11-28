@@ -9,16 +9,25 @@
     app:cardCornerRadius="12dp"
     app:cardBackgroundColor="#FFFFFF">
 
-    <LinearLayout
+    <!-- Layout principal (RelativeLayout) para permitir o posicionamento do ícone de lixeira -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/edittext_background">
+        android:layout_marginTop="50dp">
 
-        <!-- Imagem do ProdutoEntity -->
+        <!-- Ícone de lixeira no canto superior direito -->
+        <ImageView
+            android:id="@+id/iconLixeira"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/lixeira"
+            android:contentDescription="@string/remover_item"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <!-- Imagem do Produto -->
         <ImageView
             android:id="@+id/imageProduto"
             android:layout_width="100dp"
@@ -26,15 +35,20 @@
             android:layout_marginEnd="16dp"
             android:contentDescription="@string/imagemdoproduto"
             android:elevation="2dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
 
-        <!-- Detalhes do ProdutoEntity -->
+        <!-- Detalhes do Produto -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:layout_toEndOf="@id/imageProduto">
 
+            <!-- Nome do Produto -->
             <TextView
                 android:id="@+id/textNomeProduto"
                 android:layout_width="wrap_content"
@@ -45,6 +59,7 @@
                 android:textColor="#000000"
                 android:layout_marginBottom="8dp" />
 
+            <!-- Valor do Produto -->
             <TextView
                 android:id="@+id/textValorProduto"
                 android:layout_width="wrap_content"
@@ -54,13 +69,14 @@
                 android:textColor="#4CAF50"
                 android:layout_marginBottom="8dp" />
 
+            <!-- Controles de Quantidade -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
-
+                <!-- Ícone Diminuir Quantidade -->
                 <ImageView
                     android:id="@+id/iconDiminuirQuantidade"
                     android:layout_width="30dp"
@@ -69,7 +85,7 @@
                     android:contentDescription="@string/diminuir_quantidade"
                     android:layout_marginEnd="8dp" />
 
-
+                <!-- Quantidade -->
                 <EditText
                     android:id="@+id/editQuantidadeProduto"
                     android:layout_width="50dp"
@@ -81,9 +97,9 @@
                     android:textColor="#000000"
                     android:focusable="false"
                     android:layout_marginEnd="8dp"
-                    android:autofillHints="quantity"/>
+                    android:autofillHints="quantity" />
 
-
+                <!-- Ícone Aumentar Quantidade -->
                 <ImageView
                     android:id="@+id/iconAumentarQuantidade"
                     android:layout_width="30dp"
@@ -92,17 +108,18 @@
                     android:contentDescription="@string/aumentar_quantidade" />
             </LinearLayout>
 
-                <Button
-                    android:id="@+id/buttonComprarProduto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/comprar"
-                    android:backgroundTint="#D32F2F"
-                    android:textColor="#FFFFFF"
-                    android:padding="8dp"
-                    android:elevation="4dp"
-                    android:layout_gravity="end|center_vertical" />
-            </LinearLayout>
+            <!-- Botão Comprar -->
+            <Button
+                android:id="@+id/buttonComprarProduto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comprar"
+                android:backgroundTint="#D32F2F"
+                android:textColor="#FFFFFF"
+                android:padding="8dp"
+                android:elevation="4dp"
+                android:layout_gravity="end|center_vertical" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
