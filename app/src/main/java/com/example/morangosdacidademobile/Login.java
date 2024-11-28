@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import RegrasDeNegocio.Entity.Cliente;
+import android.content.SharedPreferences;
 
 public class Login extends AppCompatActivity {
 
@@ -103,6 +104,7 @@ public class Login extends AppCompatActivity {
 
 
     // Método para realizar o login
+    // Método para realizar o login
     private void realizarLogin(EditText input_email, EditText input_senha) {
         String email = input_email.getText().toString().trim();
         String senha = input_senha.getText().toString().trim();
@@ -120,27 +122,38 @@ public class Login extends AppCompatActivity {
 
                 Log.d(TAG, "Clientes retornados: " + cliente);
 
-                if (cliente == null) {
+                if (cliente != null && !cliente.isEmpty()) {
                     // Login bem-sucedido, redirecionar para a próxima tela
+
+                    // Armazenar o e-mail do cliente em SharedPreferences
+                    SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("user_email", email);  // Armazena o e-mail do cliente
+                    editor.apply();  // Salva as alterações
+
+                    // Redirecionar para a tela de perfil ou MainActivity
                     Intent intent = new Intent(Login.this, MainActivity.class);
                     startActivity(intent);
                     finish();  // Finaliza a tela de login
                 } else {
                     // Login falhou, mostrar mensagem de erro
-                    Toast.makeText(Login.this, "Credenciais inválidas", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(() -> {
+                        Toast.makeText(Login.this, "Credenciais inválidas", Toast.LENGTH_SHORT).show();
+                    });
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
 
                 // Exibir Toast de erro ao conectar com a API
-                runOnUiThread(() ->
-                        Toast.makeText(Login.this, "Erro ao conectar com a API. Tente novamente.", Toast.LENGTH_SHORT).show()
-                );
+                runOnUiThread(() -> {
+                    Toast.makeText(Login.this, "Erro ao conectar com a API. Tente novamente.", Toast.LENGTH_SHORT).show();
+                });
             }
         }).start();
-
-
-
     }
+
+
+
 }
+

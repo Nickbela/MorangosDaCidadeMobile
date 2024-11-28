@@ -1,5 +1,6 @@
 package com.example.morangosdacidademobile;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -20,6 +21,7 @@ import com.example.morangosdacidademobile.Services.ClienteApiService;
 import com.example.morangosdacidademobile.ui.Gerenciamento;
 
 import RegrasDeNegocio.Entity.Cliente;
+import android.content.SharedPreferences;
 
 public class PerfilFragment extends Fragment {
 
@@ -45,8 +47,16 @@ public class PerfilFragment extends Fragment {
         btn_editar = view.findViewById(R.id.btn_editar);
         btn_exluir = view.findViewById(R.id.btn_excluir);
 
-        // Carrega os dados do cliente
-        carregarDadosCliente();
+        // Recupera o e-mail armazenado no SharedPreferences
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
+        String email = sharedPreferences.getString("user_email", null);  // Recupera o e-mail
+
+        if (email != null) {
+            // Carrega os dados do cliente usando o e-mail
+            carregarDadosCliente(email);
+        } else {
+            Toast.makeText(getActivity(), "E-mail não encontrado", Toast.LENGTH_SHORT).show();
+        }
 
         // Configura os botões
         btn_editar.setOnClickListener(v -> editarPerfil());
@@ -55,9 +65,9 @@ public class PerfilFragment extends Fragment {
         return view;
     }
 
-    private void carregarDadosCliente() {
+    private void carregarDadosCliente(String email) {
         // Chama o método assíncrono para buscar os dados do cliente
-        new BuscarClienteTask().execute(login, senha);
+        new BuscarClienteTask().execute(email);
     }
 
     private void atualizarUI(Cliente cliente) {
