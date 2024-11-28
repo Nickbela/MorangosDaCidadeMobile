@@ -46,7 +46,11 @@
         <activity
             android:name=".Produto"
             android:exported="false"
-            android:theme="@style/Theme.MorangosDaCidadeMobile" >
+            android:theme="@style/Theme.MorangosDaCidadeMobile"/>
+        <activity
+                android:name=".ui.Gerenciamento"
+                android:exported="false"
+                android:label="Gerenciamento">
 
     </activity>
         <activity
