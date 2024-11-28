@@ -33,9 +33,10 @@
             android:drawablePadding="10dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="#808080"
+            android:textColorHint="#404040"
             android:inputType="textPersonName"
             android:autofillHints="name"/>
+
 
         <EditText
             android:id="@+id/email"
@@ -48,7 +49,7 @@
             android:drawablePadding="10dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="#808080"
+            android:textColorHint="#404040"
             android:inputType="textEmailAddress"
             android:autofillHints="emailAddress" />
 
@@ -63,7 +64,7 @@
             android:drawablePadding="10dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="#808080"
+            android:textColorHint="#404040"
             android:inputType="textPassword"
             android:autofillHints="password" />
 
@@ -78,7 +79,7 @@
             android:drawablePadding="10dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="#808080"
+            android:textColorHint="#404040"
             android:inputType="number"
             android:importantForAutofill="no"/>
 
@@ -93,7 +94,7 @@
             android:drawablePadding="10dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="#808080"
+            android:textColorHint="#404040"
             android:inputType="phone"
             android:autofillHints="phone"/>
 
@@ -108,7 +109,7 @@
             android:drawablePadding="10dp"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="#808080"
+            android:textColorHint="#404040"
             android:inputType="number"
             android:autofillHints="postalCode"/>
 
@@ -130,7 +131,7 @@
                 android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="#808080"
+                android:textColorHint="#404040"
                 android:inputType="text"
                 android:autofillHints="streetAddress" />
 
@@ -145,7 +146,7 @@
                 android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="#808080"
+                android:textColorHint="#404040"
                 android:inputType="number"
                 android:autofillHints="addressLine2" />
         </LinearLayout>
@@ -168,7 +169,7 @@
                 android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="#808080"
+                android:textColorHint="#404040"
                 android:inputType="text"
                 android:autofillHints="addressLocality" />
 
@@ -183,7 +184,7 @@
                 android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="#808080"
+                android:textColorHint="#404040"
                 android:inputType="text"
                 android:autofillHints="addressRegion"/>
         </LinearLayout>

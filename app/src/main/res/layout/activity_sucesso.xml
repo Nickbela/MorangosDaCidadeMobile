@@ -6,18 +6,16 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <!-- Ícone de Sucesso -->
-    <!-- Substitua pelo ícone correspondente -->
 
-    <!-- Mensagem de Sucesso -->
     <ImageView
         android:id="@+id/ivSuccessIcon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="145dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="146dp"
         android:layout_marginBottom="608dp"
+        android:contentDescription="@string/confirmacao_de_pagamento"
         android:src="@mipmap/ic_confirmacao_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,8 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Pagamento Concluído!"
-        android:textColor="#4CAF50"
+        android:text="@string/pagamento_concluido"
+        android:textColor="#008000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,11 +37,11 @@
 
     <!-- Subtítulo -->
     <TextView
-        android:id="@+id/tvSubMessage"
+        android:id="@+id/Mensagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Obrigado pela sua compra!"
+        android:text="@string/obrigado"
         android:textColor="#666666"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,19 +58,20 @@
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubMessage">
+        app:layout_constraintTop_toBottomOf="@id/Mensagem">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@drawable/edittext_background">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Pedido: #12345"
+                android:text="@string/pedido1234"
                 android:textColor="#333333"
                 android:textSize="16sp" />
 
@@ -80,29 +79,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Total: R$ 150,00"
+                android:text="@string/total_compra"
                 android:textColor="#333333"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data: 22/11/2024"
+                android:text="@string/data"
                 android:textColor="#333333"
                 android:textSize="16sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Botão Voltar à Página Inicial -->
+
     <Button
         android:id="@+id/btnReturnHome"
-        android:layout_width="0dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Voltar à Página Inicial"
+        android:backgroundTint="#008000"
+        android:text="@string/voltar"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:cornerRadius="24dp"

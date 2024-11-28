@@ -14,7 +14,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/edittext_background">
 
         <!-- Imagem do ProdutoEntity -->
         <ImageView
@@ -22,7 +24,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginEnd="16dp"
-            android:contentDescription="Imagem do Produto"
+            android:contentDescription="@string/imagemdoproduto"
             android:elevation="2dp"
             android:scaleType="centerCrop" />
 
@@ -37,7 +39,7 @@
                 android:id="@+id/textNomeProduto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome do Produto"
+                android:text="@string/nomedoproduto"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#000000"
@@ -47,7 +49,7 @@
                 android:id="@+id/textValorProduto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Preço"
+                android:text="@string/precoproduto"
                 android:textSize="16sp"
                 android:textColor="#4CAF50"
                 android:layout_marginBottom="8dp" />
@@ -58,27 +60,49 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
+
+                <ImageView
+                    android:id="@+id/iconDiminuirQuantidade"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/menos1"
+                    android:contentDescription="@string/diminuir_quantidade"
+                    android:layout_marginEnd="8dp" />
+
+
                 <EditText
                     android:id="@+id/editQuantidadeProduto"
                     android:layout_width="50dp"
                     android:layout_height="48dp"
-                    android:layout_marginEnd="16dp"
                     android:background="@drawable/input_background"
                     android:gravity="center"
-                    android:hint="Qtd"
+                    android:hint="@string/qtd"
                     android:inputType="number"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:focusable="false"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints="quantity"/>
+
+
+                <ImageView
+                    android:id="@+id/iconAumentarQuantidade"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/mais"
+                    android:contentDescription="@string/aumentar_quantidade" />
+            </LinearLayout>
 
                 <Button
                     android:id="@+id/buttonComprarProduto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Comprar"
+                    android:text="@string/comprar"
                     android:backgroundTint="#D32F2F"
                     android:textColor="#FFFFFF"
                     android:padding="8dp"
-                    android:elevation="4dp" />
+                    android:elevation="4dp"
+                    android:layout_gravity="end|center_vertical" />
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+

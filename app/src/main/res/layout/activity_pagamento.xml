@@ -8,53 +8,46 @@
     android:padding="16dp"
     android:background="#F4F4F4">
 
-    <!-- Título -->
+
     <TextView
         android:id="@+id/titleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Finalizar Compra"
+        android:text="@string/finalizar_compra"
         android:textSize="24sp"
         android:textColor="#333333"
         android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal" />
 
-    <!-- CardView para dados de pagamento -->
-    <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="#FFFFFF"
-        android:layout_marginBottom="16dp">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/edittext_background"
+        android:elevation="4dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="8dp">
 
-    </androidx.cardview.widget.CardView>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <!-- Nome do titular do cartão -->
-            <TextView
-                android:id="@+id/cardHolderNameLabel"
+        <TextView
+                android:id="@+id/NomeTitular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome do Titular"
+                android:text="@string/nome_do_titular"
                 android:textSize="16sp"
                 android:textColor="#757575"
                 android:layout_marginBottom="8dp"/>
 
             <EditText
-                android:id="@+id/cardHolderName"
+                android:id="@+id/input_NomeTitular"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
+                android:autofillHints="name"
                 android:background="@drawable/input_background"
-                android:hint="Exemplo: João da Silva"
+                android:hint="@string/exemplo"
                 android:inputType="textPersonName"
                 android:padding="12dp"
                 android:textColor="#333333"
@@ -62,32 +55,33 @@
 
             <!-- Número do cartão -->
             <TextView
-                android:id="@+id/cardNumberLabel"
+                android:id="@+id/NumeroCartao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Número do Cartão"
+                android:text="@string/numero_cartao"
                 android:textSize="16sp"
                 android:textColor="#757575"
                 android:layout_marginBottom="8dp"/>
 
             <EditText
-                android:id="@+id/cardNumber"
+                android:id="@+id/input_NumeroCartao"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
+                android:inputType="number"
+                android:autofillHints="creditCardNumber"
                 android:background="@drawable/input_background"
-                android:hint="0000 0000 0000 0000"
-                android:inputType="text"
+                android:hint="@string/ex"
                 android:padding="12dp"
                 android:textColor="#333333"
                 android:textSize="16sp" />
 
-            <!-- Validade -->
+
             <TextView
                 android:id="@+id/expiryDateLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Validade"
+                android:text="@string/validade"
                 android:textSize="16sp"
                 android:textColor="#757575"
                 android:layout_marginBottom="8dp"/>
@@ -99,26 +93,30 @@
                 android:gravity="start|center_vertical">
 
                 <EditText
-                    android:id="@+id/expiryMonth"
-                    android:layout_width="0dp"
+                    android:id="@+id/Mes"
+                    android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/input_background"
-                    android:hint="MM"
+                    android:hint="@string/mes"
+                    android:maxLength="2"
+                    android:autofillHints="creditCardExpirationMonth"
                     android:inputType="number"
                     android:padding="12dp"
                     android:textColor="#333333"
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/expiryYear"
+                    android:id="@+id/Ano"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
                     android:background="@drawable/input_background"
-                    android:hint="AAAA"
+                    android:hint="@string/ano"
                     android:inputType="number"
+                    android:maxLength="4"
+                    android:autofillHints="creditCardExpirationYear"
                     android:padding="12dp"
                     android:textColor="#333333"
                     android:textSize="16sp" />
@@ -126,10 +124,10 @@
 
             <!-- Código de segurança -->
             <TextView
-                android:id="@+id/cvcLabel"
+                android:id="@+id/Cvc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Código de Segurança (CVC)"
+                android:text="@string/cvc"
                 android:textSize="16sp"
                 android:textColor="#757575"
                 android:layout_marginBottom="8dp"/>
@@ -140,24 +138,33 @@
                 android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/input_background"
-                android:hint="000"
-                android:inputType="number"
+                android:hint="@string/codigo"
+                android:inputType="numberPassword"
+                android:maxLength="3"
+                android:autofillHints="creditCardSecurityCode"
                 android:padding="12dp"
                 android:textColor="#333333"
                 android:textSize="16sp" />
 
         </LinearLayout>
 
-    <!-- Botão para finalizar pagamento -->
-    <Button
-        android:id="@+id/buttonPay"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Finalizar Pagamento"
+        android:orientation="vertical"
+        android:gravity="center">
+    <Button
+        android:id="@+id/btn_pagamento"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/finalizar_pagamento"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:background="#388E3C"
+        android:backgroundTint="#008000"
         android:padding="14dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"/>
+
+    </LinearLayout>
 
 </LinearLayout>

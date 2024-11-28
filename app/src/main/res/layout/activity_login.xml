@@ -57,7 +57,7 @@
         android:hint="@string/senha"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="#808080"
+        android:textColorHint="#404040"
         android:layout_centerHorizontal="true"
         android:inputType="textPassword"
         android:autofillHints="password"/>

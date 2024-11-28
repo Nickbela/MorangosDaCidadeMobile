@@ -34,11 +34,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp" />
 
-            <ImageView
-                android:id="@+id/iconExcluirProduto"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/lixeira1" />
+
         </LinearLayout>
 
         <LinearLayout
