@@ -1,39 +1,73 @@
 package RegrasDeNegocio.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Date;
 
 public class Cliente {
+
+    @JsonProperty("nome")
     private String nome;
+
+    @JsonProperty("cpf")
     private String cpf;
+
+    @JsonProperty("email")
     private String email;
+
+    @JsonProperty("senha")
     private String senha;
+
+    @JsonProperty("rua")
     private String rua;
-    private String cidade;
-    private String estado;
-    private String cep;
+
+    @JsonProperty("numero")
     private int numero;
+
+    @JsonProperty("complemento")
+    private String complemento;
+
+    @JsonProperty("bairro")
+    private String bairro;
+
+    @JsonProperty("cidade")
+    private String cidade;
+
+    @JsonProperty("estado")
+    private String estado;
+
+    @JsonProperty("cep")
+    private String cep;
+
+    @JsonProperty("telefone")
     private String telefone;
 
-    public Cliente(String nome, String cpf, String email, String senha, String rua, String cidade, int numero, String cep, String estado , String telefone) {
+    @JsonProperty("dataNascimento")
+    private Date dataNascimento;
+
+    // Construtor com a ordem corrigida
+    public Cliente(String nome, String cpf, String email, String telefone, Date dataNascimento, String senha, String rua, String complemento, String bairro, int numero, String cidade, String estado, String cep) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
+        this.telefone = telefone;
+        this.dataNascimento = dataNascimento;
         this.senha = senha;
         this.rua = rua;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.numero = numero;
         this.cidade = cidade;
         this.estado = estado;
         this.cep = cep;
-        this.numero = numero;
-        this.telefone = telefone;
 
         Log.d("Cliente", "Cliente criado: " + this.toString());
     }
 
-    public Cliente(){}
-
+    // Construtor vazio
+    public Cliente() {}
 
     @Override
     public String toString() {
@@ -45,12 +79,16 @@ public class Cliente {
                 ", senha='" + senha + '\'' +
                 ", rua='" + rua + '\'' +
                 ", numero=" + numero +
+                ", complemento='" + complemento + '\'' +
+                ", bairro='" + bairro + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", estado='" + estado + '\'' +
                 ", cep='" + cep + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
                 '}';
     }
 
+    // Getters e setters para os campos
 
     public String getNome() {
         return nome;
@@ -92,6 +130,30 @@ public class Cliente {
         this.rua = rua;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
     public String getCidade() {
         return cidade;
     }
@@ -116,14 +178,6 @@ public class Cliente {
         this.cep = cep;
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -131,5 +185,12 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-}
 
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = Date.valueOf(dataNascimento);
+    }
+}

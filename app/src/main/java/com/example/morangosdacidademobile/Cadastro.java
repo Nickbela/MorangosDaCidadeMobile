@@ -1,5 +1,6 @@
     package com.example.morangosdacidademobile;
 
+    import static android.content.ContentValues.TAG;
     import static RegrasDeNegocio.Métodos.CadastroLogin.isEmailValido;
 
     import android.content.Intent;
@@ -21,6 +22,10 @@
     import RegrasDeNegocio.Métodos.CadastroLogin;
     import com.example.morangosdacidademobile.Services.CadastroService;
 
+    import java.net.HttpURLConnection;
+    import java.net.URL;
+    import java.sql.Date;
+
     public class Cadastro extends AppCompatActivity {
 
         @Override
@@ -34,6 +39,24 @@
                 return insets;
             });
 
+            new Thread(() -> {
+                try {
+                    URL url = new URL("http://192.168.228.16:8085/api/clientes/login"); // URL do endpoint da API.
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection(); // Abre conexão HTTP.
+                    connection.setRequestMethod("GET"); // Define o método HTTP como GET.
+                    connection.connect(); // Conecta ao servidor.
+
+                    int responseCode = connection.getResponseCode(); // Código de resposta da conexão.
+                    if (responseCode == 200) {
+                        Log.d(TAG, "Conexão HTTP com 192.168.228.16 bem-sucedida.");
+                    } else {
+                        Log.e(TAG, "Conexão HTTP falhou. Código de resposta: " + responseCode);
+                    }
+                    connection.disconnect(); // Fecha a conexão.
+                } catch (Exception e) {
+                    Log.e(TAG, "Erro ao verificar a conexão HTTP com 192.168.228.16: " + e.getMessage());
+                }
+            }).start();
 
                 EditText input_nome = findViewById(R.id.nome);
                 EditText input_email = findViewById(R.id.email);
@@ -58,6 +81,9 @@
                     String estado = input_estado.getText().toString();
                     String cep = input_cep.getText().toString();
                     int numero;
+                    java.sql.Date dataNascimento = java.sql.Date.valueOf("2000-10-10");  // Data correta
+                    String complemento="0";
+                    String bairro="0";
 
                     // Verifica o campo de número
                     try {
@@ -94,7 +120,7 @@
 
                     // Cria o cliente
                     Cliente novoCliente = new Cliente(
-                            nome, cpf, email, telefone, senha, rua, numero, cidade, estado, cep
+                            nome, cpf, email, telefone, dataNascimento, senha, rua, complemento, bairro, numero, cidade, estado, cep
                     );
 
                     // Thread para chamada à API via CadastroService

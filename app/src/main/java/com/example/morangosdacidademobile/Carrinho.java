@@ -20,6 +20,8 @@ public class Carrinho extends AppCompatActivity {
     private RecyclerView recyclerViewCarrinho;
     private CarrinhoAdapter carrinhoAdapter;
     private List<ProdutoEntity> carrinho;
+    private RecyclerView recyclerView;
+    private CarrinhoAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,8 @@ public class Carrinho extends AppCompatActivity {
         recyclerViewCarrinho.setLayoutManager(new LinearLayoutManager(this));
 
         // Inicializar o adapter com a lista de carrinho
-        carrinhoAdapter = new CarrinhoAdapter(carrinho);
-        recyclerViewCarrinho.setAdapter(carrinhoAdapter);
+        adapter = new CarrinhoAdapter(carrinho, carrinho, true);  // isCarrinhoPage = true
+        recyclerView.setAdapter(adapter);
 
         // Verifique se algum produto foi adicionado ao carrinho (essa parte depende de como você está gerenciando os dados)
         // Aqui, você pode adicionar produtos diretamente à lista do carrinho ou receber da `ProdutoActivity`

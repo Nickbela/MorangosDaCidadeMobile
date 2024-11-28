@@ -45,51 +45,50 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/imageProduto"
             android:gravity="center_vertical"
-            android:layout_toEndOf="@id/imageProduto">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <!-- Nome do Produto -->
             <TextView
                 android:id="@+id/textNomeProduto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="@string/nomedoproduto"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:textColor="#000000"
-                android:layout_marginBottom="8dp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <!-- Valor do Produto -->
             <TextView
                 android:id="@+id/textValorProduto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="@string/precoproduto"
-                android:textSize="16sp"
                 android:textColor="#4CAF50"
-                android:layout_marginBottom="8dp" />
+                android:textSize="16sp" />
 
             <!-- Controles de Quantidade -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <!-- Ícone Diminuir Quantidade -->
                 <ImageButton
                     android:id="@+id/iconDiminuirQuantidade"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/menos1"
-                    android:contentDescription="@string/diminuir_quantidade"
                     android:layout_marginEnd="8dp"
                     android:background="@android:color/transparent"
-                    android:scaleType="centerInside" />
-
-
+                    android:contentDescription="@string/diminuir_quantidade"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/menos1" />
 
 
                 <!-- Quantidade -->
@@ -97,24 +96,24 @@
                     android:id="@+id/editQuantidadeProduto"
                     android:layout_width="50dp"
                     android:layout_height="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints="quantity"
                     android:background="@drawable/input_background"
+                    android:focusable="false"
                     android:gravity="center"
                     android:hint="@string/qtd"
                     android:inputType="number"
-                    android:textColor="#000000"
-                    android:focusable="false"
-                    android:layout_marginEnd="8dp"
-                    android:autofillHints="quantity" />
+                    android:textColor="#000000" />
 
                 <!-- Ícone Aumentar Quantidade -->
                 <ImageButton
                     android:id="@+id/iconAumentarQuantidade"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/mais"
-                    android:contentDescription="@string/aumentar_quantidade"
                     android:background="@android:color/transparent"
-                    android:scaleType="centerInside" />
+                    android:contentDescription="@string/aumentar_quantidade"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/mais" />
 
             </LinearLayout>
 
@@ -123,12 +122,12 @@
                 android:id="@+id/buttonComprarProduto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/comprar"
+                android:layout_gravity="end|center_vertical"
                 android:backgroundTint="#D32F2F"
-                android:textColor="#FFFFFF"
-                android:padding="8dp"
                 android:elevation="4dp"
-                android:layout_gravity="end|center_vertical" />
+                android:padding="8dp"
+                android:text="@string/comprar"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
     </RelativeLayout>

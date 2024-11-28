@@ -2,18 +2,18 @@ package com.example.morangosdacidademobile;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.Button;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Toast;
 
 import com.example.morangosdacidademobile.adapters.CarrinhoAdapter;
 import RegrasDeNegocio.Entity.ProdutoEntity;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,9 +23,8 @@ public class Produto extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CarrinhoAdapter adapter;
     private List<ProdutoEntity> listaProdutos; // Lista de produtos completa
-    private List<ProdutoEntity> listaFiltrada;
-    private List<ProdutoEntity> carrinho;
-
+    private List<ProdutoEntity> listaFiltrada;  // Lista de produtos filtrados
+    private List<ProdutoEntity> carrinho;      // Lista do carrinho de compras
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -35,35 +34,21 @@ public class Produto extends AppCompatActivity {
 
         // Inicializando a lista de produtos
         listaProdutos = Arrays.asList(
-                new ProdutoEntity("Morango Albion", 150.00, 10,R.drawable.albion),
-                new ProdutoEntity("Morango Capri", 185.00, 10,R.drawable.capri),
-                new ProdutoEntity("Morango Diamante", 190.00,10, R.drawable.diamante),
-                new ProdutoEntity("Morango Bourbon", 210.00, 10,R.drawable.bourbon)
+                new ProdutoEntity("Morango Albion", 150.00, 0, R.drawable.albion),
+                new ProdutoEntity("Morango Capri", 185.00, 0, R.drawable.capri),
+                new ProdutoEntity("Morango Diamante", 190.00, 0, R.drawable.diamante),
+                new ProdutoEntity("Morango Bourbon", 210.00, 0, R.drawable.bourbon)
         );
 
         carrinho = new ArrayList<>();
-
         listaFiltrada = new ArrayList<>(listaProdutos); // Inicializando a lista filtrada
 
         recyclerView = findViewById(R.id.recyclerViewProdutos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Inicializando o adapter com a lista completa
-        adapter = new CarrinhoAdapter(listaFiltrada);
+        // Inicializando o adapter com a lista do carrinho
+        adapter = new CarrinhoAdapter(listaProdutos, carrinho, false);  // isCarrinhoPage = false
         recyclerView.setAdapter(adapter);
-
-        adapter = new CarrinhoAdapter(carrinho);
-        recyclerView.setAdapter(adapter);
-
-        for (ProdutoEntity produto : listaProdutos) {
-            // Localiza o botão de adicionar ao carrinho
-            Button btnAdicionar = findViewById(R.id.buttonComprarProduto);
-            btnAdicionar.setOnClickListener(v -> {
-                // Quando clicado, adiciona o produto ao carrinho
-                adapter.adicionarItem(produto);
-                Toast.makeText(Produto.this, "Produto adicionado ao carrinho", Toast.LENGTH_SHORT).show();
-            });
-        }
 
         // EditText de pesquisa
         EditText editTextSearch = findViewById(R.id.BuscarProdutos);

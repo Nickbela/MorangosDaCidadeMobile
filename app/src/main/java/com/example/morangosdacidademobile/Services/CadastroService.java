@@ -14,7 +14,7 @@ import RegrasDeNegocio.Entity.Cliente;
 public class CadastroService {
 
     public static String cadastrarCliente(Cliente cliente) throws Exception {
-        URL url = new URL("http://192.168.0.105:8085/api/clientes/adicionar");
+        URL url = new URL("http://192.168.228.16:8085/api/clientes/adicionar");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
         conn.setRequestProperty("Content-Type", "application/json");
@@ -22,12 +22,15 @@ public class CadastroService {
 
         JSONObject jsonCliente = new JSONObject();
         jsonCliente.put("nome", cliente.getNome());
-        jsonCliente.put("email", cliente.getEmail());
         jsonCliente.put("cpf", cliente.getCpf());
+        jsonCliente.put("email", cliente.getEmail());
         jsonCliente.put("telefone", cliente.getTelefone());
+        jsonCliente.put("DataNascimento", "0000-00-00");
         jsonCliente.put("senha", cliente.getSenha());
         jsonCliente.put("rua", cliente.getRua());
         jsonCliente.put("numero", cliente.getNumero());
+        jsonCliente.put("complemento","0");
+        jsonCliente.put("bairro", "0");
         jsonCliente.put("cidade", cliente.getCidade());
         jsonCliente.put("estado", cliente.getEstado());
         jsonCliente.put("cep", cliente.getCep());

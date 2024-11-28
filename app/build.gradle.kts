@@ -24,6 +24,7 @@ android {
                 "proguard-rules.pro"
             )
         }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -50,6 +51,13 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.cardview)
     implementation ("androidx.fragment:fragment:1.5.5")
+    // Dependência do Jackson
+    implementation ("com.fasterxml.jackson.core:jackson-databind:2.15.2") // ou versão mais recente
+
+    // Outras dependências do seu projeto
+    implementation ("androidx.appcompat:appcompat:1.3.1")
+    implementation ("com.google.android.material:material:1.4.0")
+    // Outras dependências
 
 }
 

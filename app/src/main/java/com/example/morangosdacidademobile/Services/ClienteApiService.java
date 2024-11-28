@@ -1,7 +1,10 @@
 package com.example.morangosdacidademobile.Services;
 
+import static android.content.ContentValues.TAG;
+
 import android.util.Log;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedWriter;
@@ -17,7 +20,7 @@ import com.example.morangosdacidademobile.Services.CadastroService;
 
 public class ClienteApiService {
 
-    private static final String BASE_URL = "http://192.168.0.105:8085/api/clientes";
+    private static final String BASE_URL = "http://192.168.228.16:8085/api/clientes";
     //private static final String BASE_URL = "http://localhost:8085/api/clientes";
 
     public static Cliente getClienteByLogin(String email, String senha) throws Exception {
@@ -27,7 +30,7 @@ public class ClienteApiService {
         }
 
         // Criar a URL com parâmetros
-        URL url = new URL(BASE_URL + "/login?login=" + email + "&senha=" + senha);
+        URL url = new URL(BASE_URL + "/login?email=" + email + "&senha=" + senha);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET"); // Define o método da requisição como GET.
 
@@ -46,25 +49,39 @@ public class ClienteApiService {
         }
         reader.close();
 
-        // Converter a resposta para um objeto JSON e criar o cliente
-        JSONObject jsonObject = new JSONObject(result.toString());
+        // Log para verificar o que a API retornou
+        Log.d(TAG, "Resposta da API: " + result.toString());
 
-        // Verificar se os campos esperados existem na resposta JSON
-        Cliente cliente = new Cliente(); // Requer um construtor vazio na classe Cliente.
+        // Tente analisar a resposta como JSON ou como valor booleano
+        try {
+            // Verificar se a resposta é um booleano
+            if ("true".equals(result.toString())) {
+                // Login bem-sucedido
+                return null; // Retorna null ou outra coisa que faça sentido na sua lógica
+            } else {
+                // Caso contrário, a resposta da API contém dados JSON
+                JSONObject jsonObject = new JSONObject(result.toString());
 
-        cliente.setNome(jsonObject.optString("nome", null));
-        cliente.setCpf(jsonObject.optString("cpf", null));
-        cliente.setEmail(jsonObject.optString("email", null));
-        cliente.setTelefone(jsonObject.optString("telefone", null));
-        cliente.setSenha(jsonObject.optString("senha", null));
-        cliente.setRua(jsonObject.optString("rua", null));
-        cliente.setNumero(jsonObject.optInt("numero", 0));
-        cliente.setCidade(jsonObject.optString("cidade", null));
-        cliente.setEstado(jsonObject.optString("estado", null));
-        cliente.setCep(jsonObject.optString("cep", null));
+                // Criar o cliente com os dados recebidos
+                Cliente cliente = new Cliente(); // Requer um construtor vazio na classe Cliente.
+                cliente.setNome(jsonObject.optString("nome", null));
+                cliente.setCpf(jsonObject.optString("cpf", null));
+                cliente.setEmail(jsonObject.optString("email", null));
+                cliente.setTelefone(jsonObject.optString("telefone", null));
+                cliente.setSenha(jsonObject.optString("senha", null));
+                cliente.setRua(jsonObject.optString("rua", null));
+                cliente.setNumero(jsonObject.optInt("numero", 0));
+                cliente.setCidade(jsonObject.optString("cidade", null));
+                cliente.setEstado(jsonObject.optString("estado", null));
+                cliente.setCep(jsonObject.optString("cep", null));
 
-        return cliente;
+                return cliente;
+            }
+        } catch (JSONException e) {
+            throw new JSONException("Erro ao interpretar resposta da API.");
+        }
     }
+
 
 
     public static String addCliente(Cliente cliente) throws Exception {
@@ -77,8 +94,8 @@ public class ClienteApiService {
         // Criar JSON do cliente
         JSONObject jsonCliente = new JSONObject();
         jsonCliente.put("nome", cliente.getNome());
-        jsonCliente.put("email", cliente.getEmail());
         jsonCliente.put("cpf", cliente.getCpf());
+        jsonCliente.put("email", cliente.getEmail());
         jsonCliente.put("telefone", cliente.getTelefone());
         jsonCliente.put("senha", cliente.getSenha());
         jsonCliente.put("rua", cliente.getRua());

@@ -23,8 +23,8 @@ import RegrasDeNegocio.Entity.Cliente;
 
 public class PerfilFragment extends Fragment {
 
-    private TextView tvWelcomeUser, etNome, etEmail, etTelefone, etCpf, etEndereco;
-    private Button btnEditProfile, btnDeleteProfile;
+    private TextView tvWelcomeUser, Nome1, Email1, Telefone1, Cpf1, Endereco1;
+    private Button btn_editar, btn_exluir;
     private Cliente clienteAtual; // Objeto para armazenar os dados do cliente
 
     private String login = "user_login"; // Substitua pelo login do cliente atual
@@ -37,20 +37,20 @@ public class PerfilFragment extends Fragment {
 
         // Inicializa os componentes da interface
         tvWelcomeUser = view.findViewById(R.id.tvWelcomeUser);
-        etNome = view.findViewById(R.id.etNome);
-        etEmail = view.findViewById(R.id.etEmail);
-        etTelefone = view.findViewById(R.id.etTelefone);
-        etCpf = view.findViewById(R.id.etCpf);
-        etEndereco = view.findViewById(R.id.etEndereco);
-        btnEditProfile = view.findViewById(R.id.btnEditProfile);
-        btnDeleteProfile = view.findViewById(R.id.btnDeleteProfile);
+        Nome1 = view.findViewById(R.id.Nome1);
+        Email1 = view.findViewById(R.id.Email1);
+        Telefone1 = view.findViewById(R.id.Telefone1);
+        Cpf1 = view.findViewById(R.id.Cpf1);
+        Endereco1 = view.findViewById(R.id.Endereco1);
+        btn_editar = view.findViewById(R.id.btn_editar);
+        btn_exluir = view.findViewById(R.id.btn_excluir);
 
         // Carrega os dados do cliente
         carregarDadosCliente();
 
         // Configura os botões
-        btnEditProfile.setOnClickListener(v -> editarPerfil());
-        btnDeleteProfile.setOnClickListener(v -> confirmarExclusao());
+        btn_editar.setOnClickListener(v -> editarPerfil());
+        btn_exluir.setOnClickListener(v -> confirmarExclusao());
 
         return view;
     }
@@ -68,11 +68,11 @@ public class PerfilFragment extends Fragment {
 
         // Atualiza os TextViews com os dados do cliente
         tvWelcomeUser.setText("Bem-vindo, " + cliente.getNome() + "!");
-        etNome.setText("Nome: " + cliente.getNome());
-        etEmail.setText("E-mail: " + cliente.getEmail());
-        etTelefone.setText("Telefone: " + cliente.getTelefone());
-        etCpf.setText("CPF: " + cliente.getCpf());
-        etEndereco.setText("Endereço: " + cliente.getRua() + ", " + cliente.getNumero() + ", " + cliente.getCidade() + ", " + cliente.getEstado());
+        Nome1.setText("Nome: " + cliente.getNome());
+        Email1.setText("E-mail: " + cliente.getEmail());
+        Telefone1.setText("Telefone: " + cliente.getTelefone());
+        Cpf1.setText("CPF: " + cliente.getCpf());
+        Endereco1.setText("Endereço: " + cliente.getRua() + ", " + cliente.getNumero() + ", " + cliente.getCidade() + ", " + cliente.getEstado());
     }
 
     private void editarPerfil() {

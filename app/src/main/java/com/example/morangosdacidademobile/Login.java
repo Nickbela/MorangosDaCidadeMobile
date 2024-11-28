@@ -29,7 +29,7 @@ import RegrasDeNegocio.Entity.Cliente;
 
 public class Login extends AppCompatActivity {
 
-    List<Cliente> clientes = new ArrayList<>();
+    List<Cliente> cliente = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,20 +40,20 @@ public class Login extends AppCompatActivity {
         Log.d(TAG, "Verificando configurações de rede...");
         new Thread(() -> {
             try {
-                URL url = new URL("http://192.168.0.105:8085/api/clientes/login"); // URL do endpoint da API.
+                URL url = new URL("http://192.168.228.16:8085/api/clientes/login"); // URL do endpoint da API.
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection(); // Abre conexão HTTP.
                 connection.setRequestMethod("GET"); // Define o método HTTP como GET.
                 connection.connect(); // Conecta ao servidor.
 
                 int responseCode = connection.getResponseCode(); // Código de resposta da conexão.
                 if (responseCode == 200) {
-                    Log.d(TAG, "Conexão HTTP com 192.168.0.105 bem-sucedida.");
+                    Log.d(TAG, "Conexão HTTP com 192.168.228.16 bem-sucedida.");
                 } else {
                     Log.e(TAG, "Conexão HTTP falhou. Código de resposta: " + responseCode);
                 }
                 connection.disconnect(); // Fecha a conexão.
             } catch (Exception e) {
-                Log.e(TAG, "Erro ao verificar a conexão HTTP com 192.168.0.105: " + e.getMessage());
+                Log.e(TAG, "Erro ao verificar a conexão HTTP com 192.168.228.16: " + e.getMessage());
             }
         }).start();
 
@@ -107,27 +107,39 @@ public class Login extends AppCompatActivity {
         String email = input_email.getText().toString().trim();
         String senha = input_senha.getText().toString().trim();
 
+        Log.d(TAG, "Email: " + email + ", Senha: " + senha);
+
         if (!isEmailValido(email)) {
             input_email.setError("Formato de e-mail inválido!");
             return;
         }
 
-                new Thread(() -> {
-                    try {
-                        clientes = (List<Cliente>) ClienteApiService.getClienteByLogin(email, senha);
+        new Thread(() -> {
+            try {
+                cliente = (List<Cliente>) ClienteApiService.getClienteByLogin(email, senha);
 
-                        if (clientes != null) {
-                            Intent intent = new Intent(Login.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Toast.makeText(Login.this, "Identificador (e-mail) ou senha inválidos.", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Toast.makeText(Login.this, "Erro ao conectar com a API. Tente novamente.", Toast.LENGTH_SHORT).show();
-                    }
-                }).start();
+                Log.d(TAG, "Clientes retornados: " + cliente);
+
+                if (cliente == null) {
+                    // Login bem-sucedido, redirecionar para a próxima tela
+                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();  // Finaliza a tela de login
+                } else {
+                    // Login falhou, mostrar mensagem de erro
+                    Toast.makeText(Login.this, "Credenciais inválidas", Toast.LENGTH_SHORT).show();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+                // Exibir Toast de erro ao conectar com a API
+                runOnUiThread(() ->
+                        Toast.makeText(Login.this, "Erro ao conectar com a API. Tente novamente.", Toast.LENGTH_SHORT).show()
+                );
+            }
+        }).start();
+
 
 
     }
