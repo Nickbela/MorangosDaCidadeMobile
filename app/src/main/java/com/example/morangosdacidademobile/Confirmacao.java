@@ -30,13 +30,13 @@ public class Confirmacao extends AppCompatActivity {
         double totalCompra = getIntent().getDoubleExtra("totalCompra", 0.0);
 
         // Exibir dados do cliente
-        TextView tvNomeCliente = findViewById(R.id.tvNomeCliente);
-        TextView tvTelefoneCliente = findViewById(R.id.tvTelefoneCliente);
-        tvNomeCliente.setText("Nome: " + nomeCliente);
-        tvTelefoneCliente.setText("Telefone: " + telefoneCliente);
+        TextView NomeCliente = findViewById(R.id.NomeCliente);
+        TextView TelefoneCliente = findViewById(R.id.TelefoneCliente);
+        NomeCliente.setText("Nome: " + nomeCliente);
+        TelefoneCliente.setText("Telefone: " + telefoneCliente);
 
         // Exibir detalhes do pedido
-        TextView tvDetalhesPedido = findViewById(R.id.tvDetalhesPedido);
+        TextView tvDetalhesPedido = findViewById(R.id.DetalhesPedido);
         StringBuilder detalhesPedido = new StringBuilder();
         for (ProdutoEntity produto : itensPedido) {
             detalhesPedido.append(produto.getNome())
@@ -47,7 +47,7 @@ public class Confirmacao extends AppCompatActivity {
         tvDetalhesPedido.setText(detalhesPedido.toString());
 
         // Exibir total
-        TextView tvTotal = findViewById(R.id.tvTotal);
+        TextView tvTotal = findViewById(R.id.Total);
         tvTotal.setText(String.format("Total: R$ %.2f", totalCompra));
 
         // Configurar botões
