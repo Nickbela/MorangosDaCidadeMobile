@@ -34,17 +34,17 @@ public class Gerenciamento extends Activity {
         setContentView(R.layout.activity_gerenciamento);
 
         // Obtendo as referências dos campos
-        EditText etNome = findViewById(R.id.etNome);
-        EditText etEmail = findViewById(R.id.etEmail);
-        EditText etTelefone = findViewById(R.id.etTelefone);
-        EditText etCPF = findViewById(R.id.etCPF);
-        EditText etCEP = findViewById(R.id.etCEP);
-        EditText etRua = findViewById(R.id.etRua);
-        EditText etNumero = findViewById(R.id.etNumero);
-        EditText etCidade = findViewById(R.id.etCidade);
-        EditText etEstado = findViewById(R.id.etEstado);
+        EditText Nome = findViewById(R.id.Nome);
+        EditText Email = findViewById(R.id.Email);
+        EditText Telefone = findViewById(R.id.Telefone);
+        EditText CPF = findViewById(R.id.CPF);
+        EditText CEP = findViewById(R.id.CEP);
+        EditText Rua = findViewById(R.id.Rua);
+        EditText Numero = findViewById(R.id.Numero);
+        EditText Cidade = findViewById(R.id.Cidade);
+        EditText Estado = findViewById(R.id.Estado);
 
-        Button btnSalvarDados = findViewById(R.id.btnSalvarDadosPessoais);
+        Button btnSalvarDados = findViewById(R.id.btn_SalvarDadosPessoais);
         Button btnSalvarEndereco = findViewById(R.id.btnSalvarEndereco);
 
         // Carregar dados do cliente usando API
@@ -57,15 +57,15 @@ public class Gerenciamento extends Activity {
 
                 // Atualizar os campos na UI (necessário usar runOnUiThread)
                 runOnUiThread(() -> {
-                    etNome.setText(cliente.getNome());
-                    etEmail.setText(cliente.getEmail());
-                    etTelefone.setText(cliente.getTelefone());
-                    etCPF.setText(cliente.getCpf());
-                    etCEP.setText(cliente.getCep());
-                    etRua.setText(cliente.getRua());
-                    etNumero.setText(String.valueOf(cliente.getNumero()));
-                    etCidade.setText(cliente.getCidade());
-                    etEstado.setText(cliente.getEstado());
+                    Nome.setText(cliente.getNome());
+                    Email.setText(cliente.getEmail());
+                    Telefone.setText(cliente.getTelefone());
+                    CPF.setText(cliente.getCpf());
+                    CEP.setText(cliente.getCep());
+                    Rua.setText(cliente.getRua());
+                    Numero.setText(String.valueOf(cliente.getNumero()));
+                    Cidade.setText(cliente.getCidade());
+                    Estado.setText(cliente.getEstado());
                 });
             } catch (Exception e) {
                 e.printStackTrace();
@@ -80,10 +80,10 @@ public class Gerenciamento extends Activity {
             new Thread(() -> {
                 try {
                     Cliente clienteAtualizado = new Cliente();
-                    clienteAtualizado.setNome(etNome.getText().toString());
-                    clienteAtualizado.setEmail(etEmail.getText().toString());
-                    clienteAtualizado.setTelefone(etTelefone.getText().toString());
-                    clienteAtualizado.setCpf(etCPF.getText().toString());
+                    clienteAtualizado.setNome(Nome.getText().toString());
+                    clienteAtualizado.setEmail(Email.getText().toString());
+                    clienteAtualizado.setTelefone(Telefone.getText().toString());
+                    clienteAtualizado.setCpf(CPF.getText().toString());
 
                     String response = ClienteApiService.updateCliente(clienteAtualizado.getCpf(), clienteAtualizado);
                     runOnUiThread(() ->
@@ -103,11 +103,11 @@ public class Gerenciamento extends Activity {
             new Thread(() -> {
                 try {
                     Cliente clienteAtualizado = new Cliente();
-                    clienteAtualizado.setCep(etCEP.getText().toString());
-                    clienteAtualizado.setRua(etRua.getText().toString());
-                    clienteAtualizado.setNumero(Integer.parseInt(etNumero.getText().toString()));
-                    clienteAtualizado.setCidade(etCidade.getText().toString());
-                    clienteAtualizado.setEstado(etEstado.getText().toString());
+                    clienteAtualizado.setCep(CEP.getText().toString());
+                    clienteAtualizado.setRua(Rua.getText().toString());
+                    clienteAtualizado.setNumero(Integer.parseInt(Numero.getText().toString()));
+                    clienteAtualizado.setCidade(Cidade.getText().toString());
+                    clienteAtualizado.setEstado(Estado.getText().toString());
 
                     String response = ClienteApiService.updateCliente(clienteAtualizado.getCpf(), clienteAtualizado);
                     runOnUiThread(() ->

@@ -83,7 +83,7 @@
                 android:autofillHints="emailAddress"/>
 
             <EditText
-                android:id="@+id/etTelefone"
+                android:id="@+id/Telefone"
                 android:layout_width="342dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
@@ -189,7 +189,7 @@
                 android:autofillHints="addressLocality" />
 
             <EditText
-                android:id="@+id/estado"
+                android:id="@+id/Estado"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
