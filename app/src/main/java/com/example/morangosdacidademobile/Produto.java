@@ -35,10 +35,10 @@ public class Produto extends AppCompatActivity {
 
         // Inicializando a lista de produtos
         listaProdutos = Arrays.asList(
-                new ProdutoEntity("Morango Albion", 150.00, 10,R.mipmap.ic_albion_foreground),
-                new ProdutoEntity("Morango Capri", 185.00, 10,R.mipmap.ic_capri_foreground),
-                new ProdutoEntity("Morango Diamante", 190.00,10, R.mipmap.ic_diamante_foreground),
-                new ProdutoEntity("Morango Bourbon", 210.00, 10,R.mipmap.ic_bourbon_foreground)
+                new ProdutoEntity("Morango Albion", 150.00, 10,R.drawable.albion),
+                new ProdutoEntity("Morango Capri", 185.00, 10,R.drawable.capri),
+                new ProdutoEntity("Morango Diamante", 190.00,10, R.drawable.diamante),
+                new ProdutoEntity("Morango Bourbon", 210.00, 10,R.drawable.bourbon)
         );
 
         carrinho = new ArrayList<>();
@@ -66,7 +66,7 @@ public class Produto extends AppCompatActivity {
         }
 
         // EditText de pesquisa
-        EditText editTextSearch = findViewById(R.id.editTextSearch);
+        EditText editTextSearch = findViewById(R.id.BuscarProdutos);
         editTextSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
