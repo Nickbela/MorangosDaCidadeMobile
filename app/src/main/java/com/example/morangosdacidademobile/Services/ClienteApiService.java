@@ -4,6 +4,7 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -12,7 +13,7 @@ import java.net.URL;
 
 import RegrasDeNegocio.Entity.Cliente;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import com.example.morangosdacidademobile.Services.CadastroService;
 
 public class ClienteApiService {
 
@@ -49,7 +50,8 @@ public class ClienteApiService {
         JSONObject jsonObject = new JSONObject(result.toString());
 
         // Verificar se os campos esperados existem na resposta JSON
-        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente(); // Requer um construtor vazio na classe Cliente.
+
         cliente.setNome(jsonObject.optString("nome", null));
         cliente.setCpf(jsonObject.optString("cpf", null));
         cliente.setEmail(jsonObject.optString("email", null));
@@ -61,7 +63,7 @@ public class ClienteApiService {
         cliente.setEstado(jsonObject.optString("estado", null));
         cliente.setCep(jsonObject.optString("cep", null));
 
-        return cliente; // Retorna o cliente.
+        return cliente;
     }
 
 

@@ -1,5 +1,7 @@
 package RegrasDeNegocio.Entity;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +17,10 @@ public class Cliente {
     private int numero;
     private String telefone;
 
-    public Cliente(String nome, String cpf, String senha, String rua, String cidade, String estado, String cep, int numero, String telefone) {
+    public Cliente(String nome, String cpf, String email, String senha, String rua, String cidade, int numero, String cep, String estado , String telefone) {
         this.nome = nome;
         this.cpf = cpf;
+        this.email = email;
         this.senha = senha;
         this.rua = rua;
         this.cidade = cidade;
@@ -25,14 +28,12 @@ public class Cliente {
         this.cep = cep;
         this.numero = numero;
         this.telefone = telefone;
+
+        Log.d("Cliente", "Cliente criado: " + this.toString());
     }
 
-    public Cliente() {
+    public Cliente(){}
 
-    }
-
-    public Cliente(String nome, String cpf, String email, String telefone, String senha, String rua, int numero, String cidade, String estado, String cep) {
-    }
 
     @Override
     public String toString() {
