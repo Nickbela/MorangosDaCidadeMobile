@@ -3,7 +3,9 @@ package com.example.morangosdacidademobile;
 import static android.content.ContentValues.TAG;
 import static RegrasDeNegocio.Métodos.CadastroLogin.isEmailValido;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -35,7 +37,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         Log.d(TAG, "Verificando configurações de rede...");
         new Thread(() -> {
@@ -87,21 +88,6 @@ public class Login extends AppCompatActivity {
         btn_entrar.setOnClickListener(v -> realizarLogin(input_email, input_senha));
     }
 
-    ClickableSpan clickableSpan = new ClickableSpan() {
-        @Override
-        public void onClick(View widget) {
-            try {
-                System.out.println("Clicou no texto para cadastro.");
-                Intent intent = new Intent(Login.this, Cadastro.class);
-                startActivity(intent);
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(Login.this, "Erro ao abrir a tela de cadastro.", Toast.LENGTH_SHORT).show();
-            }
-        }
-    };
-
-
     // Método para realizar o login
     private void realizarLogin(EditText input_email, EditText input_senha) {
         String email = input_email.getText().toString().trim();
@@ -120,14 +106,22 @@ public class Login extends AppCompatActivity {
 
                 Log.d(TAG, "Clientes retornados: " + cliente);
 
-                if (cliente == null) {
+                if (cliente != null && !cliente.isEmpty()) {
+                    // Salva o e-mail no SharedPreferences
+                    SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("user_email", email); // Salva o e-mail do cliente
+                    editor.apply();
+
                     // Login bem-sucedido, redirecionar para a próxima tela
                     Intent intent = new Intent(Login.this, MainActivity.class);
                     startActivity(intent);
                     finish();  // Finaliza a tela de login
                 } else {
                     // Login falhou, mostrar mensagem de erro
-                    Toast.makeText(Login.this, "Credenciais inválidas", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(() ->
+                            Toast.makeText(Login.this, "Credenciais inválidas", Toast.LENGTH_SHORT).show()
+                    );
                 }
 
             } catch (Exception e) {
@@ -139,8 +133,5 @@ public class Login extends AppCompatActivity {
                 );
             }
         }).start();
-
-
-
     }
 }
