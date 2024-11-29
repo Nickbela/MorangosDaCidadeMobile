@@ -1,9 +1,10 @@
 package com.example.morangosdacidademobile;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,139 +12,164 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.morangosdacidademobile.Services.ClienteApiService;
-import com.example.morangosdacidademobile.ui.Gerenciamento;
 
 import RegrasDeNegocio.Entity.Cliente;
 
 public class PerfilFragment extends Fragment {
 
-    private TextView tvWelcomeUser, Nome1, Email1, Telefone1, Cpf1, Endereco1;
-    private Button btn_editar, btn_exluir;
-    private Cliente clienteAtual; // Objeto para armazenar os dados do cliente
+    private TextView tvNome, tvEmail, tvTelefone, tvCpf, tvEndereco, tvWelcomeUser;
+    private static final String TAG = "PerfilFragment"; // Definir um TAG para os logs
+    Button btn_editar, btnExcluir;
 
-    private String login = "user_login"; // Substitua pelo login do cliente atual
-    private String senha = "user_password"; // Substitua pela senha do cliente atual
-
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Infla o layout do fragmento
+        View rootView = inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        // Inicializa os componentes da interface
-        tvWelcomeUser = view.findViewById(R.id.tvWelcomeUser);
-        Nome1 = view.findViewById(R.id.Nome1);
-        Email1 = view.findViewById(R.id.Email1);
-        Telefone1 = view.findViewById(R.id.Telefone1);
-        Cpf1 = view.findViewById(R.id.Cpf1);
-        Endereco1 = view.findViewById(R.id.Endereco1);
-        btn_editar = view.findViewById(R.id.btn_editar);
-        btn_exluir = view.findViewById(R.id.btn_excluir);
+        // Inicializar as TextViews
+        tvWelcomeUser = rootView.findViewById(R.id.tvWelcomeUser);
+        tvNome = rootView.findViewById(R.id.Nome1);
+        tvEmail = rootView.findViewById(R.id.Email1);
+        tvTelefone = rootView.findViewById(R.id.Telefone1);
+        tvCpf = rootView.findViewById(R.id.Cpf1);
+        tvEndereco = rootView.findViewById(R.id.Endereco1);
 
-        // Carrega os dados do cliente
-        carregarDadosCliente();
+        // Log inicializando o fragment
+        Log.d(TAG, "Iniciando PerfilFragment...");
 
-        // Configura os botões
-        btn_editar.setOnClickListener(v -> editarPerfil());
-        btn_exluir.setOnClickListener(v -> confirmarExclusao());
+        new Thread(() -> {
+            try {
+                SharedPreferences sharedPreferences2 = getActivity().getSharedPreferences("ClientePreferences", Context.MODE_PRIVATE);
+                String emailCliente = sharedPreferences2.getString("emailCliente", null); // Recupera o email
 
-        return view;
+                // Log para verificar o email recuperado
+                Log.d(TAG, "Email recuperado do SharedPreferences: " + emailCliente );
+
+                if (emailCliente  != null) {
+                    // Agora você pode buscar os dados do cliente com esse email
+
+                    Cliente cliente = ClienteApiService.getClienteDataByEmail(emailCliente );
+
+                    Log.d(TAG, "Dados do cliente1: "
+                            + "Nome=" + cliente.getNome()
+                            + ", Email=" + cliente.getEmail()
+                            + ", Telefone=" + cliente.getTelefone()
+                            + ", CPF=" + cliente.getCpf()
+                            + ", Rua=" + cliente.getRua()
+                            + ", Numero=" + cliente.getNumero()
+                            + ", Cidade=" + cliente.getCidade()
+                            + ", Estado=" + cliente.getEstado());
+
+                    // Log para verificar os dados do cliente
+                    if (cliente != null) {
+                        Log.d(TAG, "Dados do cliente encontrados: " + cliente.getNome() + ", " + cliente.getEmail());
+
+                        Log.d(TAG, "Dados do cliente2: "
+                                + "Nome=" + cliente.getNome()
+                                + ", Email=" + cliente.getEmail()
+                                + ", Telefone=" + cliente.getTelefone()
+                                + ", CPF=" + cliente.getCpf()
+                                + ", Rua=" + cliente.getRua()
+                                + ", Numero=" + cliente.getNumero()
+                                + ", Cidade=" + cliente.getCidade()
+                                + ", Estado=" + cliente.getEstado());
+
+                        // Preencher os campos com os dados do cliente
+                        getActivity().runOnUiThread(() -> {
+                            tvWelcomeUser.setText("Bem Vindo(a), "+ cliente.getNome());
+                            tvNome.setText("Nome: " + cliente.getNome());
+                            tvEmail.setText("Email: "+cliente.getEmail());
+                            tvTelefone.setText("Telefone: "+cliente.getTelefone());
+                            tvCpf.setText("CPF: "+cliente.getCpf());
+
+                            // Exibir o endereço completo
+                            String enderecoCompleto = "Endereço: "+cliente.getRua() + ", " + cliente.getNumero() + ", "
+                                    + cliente.getCidade() + ", " + cliente.getEstado();
+                            tvEndereco.setText(enderecoCompleto);
+
+                            // Log para confirmar o preenchimento dos dados
+                            Log.d(TAG, "Dados preenchidos na UI: " + enderecoCompleto);
+                        });
+
+                    } else {
+                        // Caso não encontre o cliente, exibe uma mensagem
+                        Log.d(TAG, "Cliente não encontrado para o email: " + emailCliente);
+
+                        getActivity().runOnUiThread(() -> tvNome.setText("Cliente não encontrado"));
+                    }
+                } else {
+                    Log.d(TAG, "Email não encontrado nos SharedPreferences.");
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Erro ao carregar os dados do cliente: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }).start();
+
+        // Dentro do método onCreateView, adicione isso logo após inicializar os TextViews:
+        Button btnEditar = rootView.findViewById(R.id.btn_editar);
+        btnExcluir = rootView.findViewById(R.id.btn_excluir);
+
+        // Configurar o clique no botão
+        btnEditar.setOnClickListener(v -> {
+            // Transição para a tela de edição do perfil
+            openEditProfileScreen();
+        });
+
+        btnExcluir.setOnClickListener(v -> {
+            // Confirmação antes de excluir
+            new android.app.AlertDialog.Builder(requireContext())
+                    .setTitle("Excluir Cadastro")
+                    .setMessage("Tem certeza de que deseja excluir seu cadastro?")
+                    .setPositiveButton("Sim", (dialog, which) -> excluirCadastro())
+                    .setNegativeButton("Não", null)
+                    .show();
+        });
+
+        return rootView;
     }
 
-    private void carregarDadosCliente() {
-        // Chama o método assíncrono para buscar os dados do cliente
-        new BuscarClienteTask().execute(login, senha);
-    }
+    private void excluirCadastro() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("ClientePreferences", Context.MODE_PRIVATE);
+        String emailCliente = sharedPreferences.getString("emailCliente", null);
 
-    private void atualizarUI(Cliente cliente) {
-        if (cliente == null) {
-            Toast.makeText(getActivity(), "Erro ao carregar dados do cliente.", Toast.LENGTH_SHORT).show();
-            return;
+        if (emailCliente != null) {
+            new Thread(() -> {
+                try {
+                    // Faz a requisição para excluir o cliente e recebe a resposta como texto
+                    String resposta = ClienteApiService.deleteCliente(emailCliente);
+
+                    getActivity().runOnUiThread(() -> {
+                        // Verifica se a resposta indica sucesso ou erro
+                        if (resposta != null && resposta.equals("sucesso")) {
+                            Toast.makeText(requireContext(), "Cadastro excluído com sucesso.", Toast.LENGTH_SHORT).show();
+                            // Limpar SharedPreferences e redirecionar para a tela inicial
+                            sharedPreferences.edit().clear().apply();
+                            startActivity(new Intent(requireContext(), Login.class));
+                            getActivity().finish();
+                        } else {
+                            // Exibe a mensagem de erro recebida do servidor
+                            Toast.makeText(requireContext(), "Erro ao excluir cadastro: " + resposta, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    getActivity().runOnUiThread(() -> Toast.makeText(requireContext(), "Erro ao excluir cadastro: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                }
+            }).start();
         }
-
-        // Atualiza os TextViews com os dados do cliente
-        tvWelcomeUser.setText("Bem-vindo, " + cliente.getNome() + "!");
-        Nome1.setText("Nome: " + cliente.getNome());
-        Email1.setText("E-mail: " + cliente.getEmail());
-        Telefone1.setText("Telefone: " + cliente.getTelefone());
-        Cpf1.setText("CPF: " + cliente.getCpf());
-        Endereco1.setText("Endereço: " + cliente.getRua() + ", " + cliente.getNumero() + ", " + cliente.getCidade() + ", " + cliente.getEstado());
     }
 
-    private void editarPerfil() {
-        // Navega para a tela de edição de perfil
-        Intent intent = new Intent(getActivity(), Gerenciamento.class);
-        intent.putExtra("cliente", (CharSequence) clienteAtual); // Passa os dados do cliente para a próxima tela
+
+    private void openEditProfileScreen() {
+        // Aqui você pode iniciar uma nova Activity para a edição de perfil
+        Intent intent = new Intent(requireContext(), Gerenciamento.class);
         startActivity(intent);
     }
 
-    private void confirmarExclusao() {
-        new AlertDialog.Builder(requireContext())
-                .setTitle("Excluir Cadastro")
-                .setMessage("Tem certeza de que deseja excluir seu cadastro? Esta ação é irreversível.")
-                .setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        excluirPerfil();
-                    }
-                })
-                .setNegativeButton("Cancelar", null)
-                .show();
-    }
 
-    private void excluirPerfil() {
-        // Chama o método assíncrono para excluir o cliente
-        new ExcluirClienteTask().execute(Long.valueOf(clienteAtual.getCpf()));
-    }
-
-    // Task para buscar o cliente
-    private class BuscarClienteTask extends AsyncTask<String, Void, Cliente> {
-        @Override
-        protected Cliente doInBackground(String... params) {
-            try {
-                return ClienteApiService.getClienteByLogin(params[0], params[1]);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Cliente cliente) {
-            clienteAtual = cliente; // Salva os dados do cliente
-            atualizarUI(cliente); // Atualiza a interface com os dados
-        }
-    }
-
-    // Task para excluir o cliente
-    private class ExcluirClienteTask extends AsyncTask<Long, Void, Boolean> {
-        @Override
-        protected Boolean doInBackground(Long... params) {
-            try {
-                String resposta = ClienteApiService.deleteCliente(params[0]);
-                return resposta.equals("Cliente deletado com sucesso");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Boolean sucesso) {
-            if (sucesso) {
-                Toast.makeText(getActivity(), "Perfil excluído com sucesso!", Toast.LENGTH_SHORT).show();
-                // Redireciona para a tela de login
-                Intent intent = new Intent(getActivity(), Login.class);
-                startActivity(intent);
-                requireActivity().finish();
-            } else {
-                Toast.makeText(getActivity(), "Erro ao excluir perfil.", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 }

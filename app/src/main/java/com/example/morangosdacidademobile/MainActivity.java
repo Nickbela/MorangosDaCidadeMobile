@@ -2,6 +2,7 @@ package com.example.morangosdacidademobile;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -21,12 +22,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState == null) {
+            loadHomeFragment(); // Carrega o HomeFragment inicialmente
+        }
+
         // Inicializar BottomNavigationView
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // Criar o mapeamento entre IDs e Fragments
         fragmentMap = new HashMap<>();
         fragmentMap.put(R.id.nav_home, new HomeFragment());
+        fragmentMap.put(R.id.nav_produtos, new ProdutoFragment());
         fragmentMap.put(R.id.nav_carrinho, new CarrinhoFragment());
         fragmentMap.put(R.id.nav_perfil, new PerfilFragment());
 
@@ -48,5 +54,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-}
 
+    private void loadHomeFragment() {
+        // Cria uma nova instância do HomeFragment
+        HomeFragment homeFragment = new HomeFragment();
+
+        // Adiciona o fragmento no layout
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, homeFragment) // Substitui o fragmento atual pelo HomeFragment
+                .commit();
+    }
+}

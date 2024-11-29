@@ -1,16 +1,20 @@
 package RegrasDeNegocio.Entity;
 
-public class ProdutoEntity {
+import java.io.Serializable;
+
+public class ProdutoEntity implements Serializable {
     private String nome;
     private double preco;
     private int quantidade;
     private int imagemId;
+    private String id;
 
-    public ProdutoEntity(String nome, double preco, int quantidade, int imagemId) {
+    public ProdutoEntity(String nome, double preco, int quantidade, int imagemId,String id) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
         this.imagemId = imagemId;
+        this.id=id;
     }
 
     public String getNome() {
@@ -43,4 +47,11 @@ public class ProdutoEntity {
         this.imagemId = imagemId;
     }
 
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

@@ -1,7 +1,9 @@
 package com.example.morangosdacidademobile;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,21 +21,25 @@ public class Confirmacao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmacao);
 
-        // Receber dados do cliente
-        String nomeCliente = getIntent().getStringExtra("nomeCliente");
-        String telefoneCliente = getIntent().getStringExtra("telefoneCliente");
+        // Recuperando o nome do cliente do SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("ClientePreferences", MODE_PRIVATE);
+        String nomeCliente = sharedPreferences.getString("nomeCliente", null); // Recupera o nome ou null se não encontrado
+
+        if (nomeCliente != null) {
+            // Usar o nome do cliente (exibindo na UI, por exemplo)
+            TextView nomeClienteTextView = findViewById(R.id.NomeCliente);
+            nomeClienteTextView.setText("Nome: " + nomeCliente);
+        } else {
+            // Se não encontrou o nome no SharedPreferences, você pode fazer uma nova requisição ou exibir uma mensagem de erro
+            Log.e("ConfirmacaoActivity", "Nome do cliente não encontrado no SharedPreferences");
+        }
+
 
         // Receber lista de itens do pedido
         List<ProdutoEntity> itensPedido = (List<ProdutoEntity>) getIntent().getSerializableExtra("itensPedido");
 
         // Receber total da compra
         double totalCompra = getIntent().getDoubleExtra("totalCompra", 0.0);
-
-        // Exibir dados do cliente
-        TextView NomeCliente = findViewById(R.id.NomeCliente);
-        TextView TelefoneCliente = findViewById(R.id.TelefoneCliente);
-        NomeCliente.setText("Nome: " + nomeCliente);
-        TelefoneCliente.setText("Telefone: " + telefoneCliente);
 
         // Exibir detalhes do pedido
         TextView tvDetalhesPedido = findViewById(R.id.DetalhesPedido);
@@ -59,7 +65,6 @@ public class Confirmacao extends AppCompatActivity {
             // Ir para a tela de pagamento
             Intent intent = new Intent(this, Pagamento.class);
             intent.putExtra("nomeCliente", nomeCliente);
-            intent.putExtra("telefoneCliente", telefoneCliente);
             intent.putExtra("itensPedido", (Serializable) itensPedido);
             intent.putExtra("totalCompra", totalCompra);
             startActivity(intent);

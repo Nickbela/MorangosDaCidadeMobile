@@ -48,8 +48,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginHorizontal="8dp">
 
-
-       <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/informacoes"
@@ -94,7 +93,6 @@
                 android:textSize="16sp"
                 android:autofillHints="phone"/>
 
-
             <EditText
                 android:id="@+id/CPF"
                 android:layout_width="match_parent"
@@ -106,20 +104,7 @@
                 android:padding="12dp"
                 android:textSize="16sp"
                 android:importantForAutofill="no"/>
-
-
-            <Button
-                android:id="@+id/btn_SalvarDadosPessoais"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:text="@string/salvaralteracoes"
-                android:backgroundTint="#008000"
-                android:textColor="#FFFFFF"
-                android:textAllCaps="false"
-                android:layout_marginTop="16dp"
-                android:padding="16dp" />
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -199,20 +184,7 @@
                 android:inputType="text"
                 android:padding="12dp"
                 android:textSize="16sp" />
-
-
-            <Button
-                android:id="@+id/btnSalvarEndereco"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:text="@string/salvar_endereco"
-                android:backgroundTint="#008000"
-                android:textColor="#FFFFFF"
-                android:textAllCaps="false"
-                android:layout_marginTop="16dp"
-                android:padding="16dp" />
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -233,14 +205,28 @@
                 android:textColor="#757575"
                 android:layout_marginBottom="8dp" />
 
+            <EditText
+                android:id="@+id/Senha"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="addressRegion"
+                android:backgroundTint="#BDBDBD"
+                android:hint="@string/senha"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Apenas um botão para salvar -->
             <Button
-                android:id="@+id/btn_AlterarSenha"
+                android:id="@+id/btn_Salvar"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:text="@string/alterar_senha"
+                android:text="@string/salvaralteracoes"
                 android:backgroundTint="#008000"
                 android:textColor="#FFFFFF"
                 android:textAllCaps="false"
+                android:layout_marginTop="16dp"
                 android:padding="16dp" />
         </LinearLayout>
 

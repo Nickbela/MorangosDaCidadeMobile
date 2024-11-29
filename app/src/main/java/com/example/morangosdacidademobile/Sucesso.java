@@ -24,7 +24,6 @@ public class Sucesso extends AppCompatActivity {
 
         // Referências aos elementos da interface
         TextView NumPedido = findViewById(R.id.NumPedido);
-        TextView TotalPedido = findViewById(R.id.TotalPedido);
         TextView DataCompra = findViewById(R.id.DataCompra);
         Button btnVoltarHome = findViewById(R.id.btnReturnHome);
 
@@ -38,18 +37,17 @@ public class Sucesso extends AppCompatActivity {
 
         // Recebe o total da compra da tela anterior
         Intent intent = getIntent();
-        String totalCompra = intent.getStringExtra("TOTAL_COMPRA");
+        //String totalCompra = intent.getStringExtra("TOTAL_COMPRA");
 
         // Configura os textos
         NumPedido.setText(numeroPedidoTexto);
-        TotalPedido.setText(getString(R.string.total_compra_, totalCompra));
         DataCompra.setText(getString(R.string.data_compra, dataAtual));
 
         // Voltar à tela inicial ao clicar no botão
         btnVoltarHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent homeIntent = new Intent(Sucesso.this, HomeFragment.class);
+                Intent homeIntent = new Intent(Sucesso.this, MainActivity.class);
                 startActivity(homeIntent);
                 finish(); // Finaliza a Activity para não voltar ao sucesso
             }

@@ -57,6 +57,7 @@ dependencies {
     // Outras dependências do seu projeto
     implementation ("androidx.appcompat:appcompat:1.3.1")
     implementation ("com.google.android.material:material:1.4.0")
+    implementation ("com.google.code.gson:gson:2.8.8")
     // Outras dependências
 
 }

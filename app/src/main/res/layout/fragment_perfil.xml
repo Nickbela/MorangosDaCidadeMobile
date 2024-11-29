@@ -152,17 +152,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="8dp"
             tools:ignore="UnknownId" />
-        <TextView
-            android:id="@+id/botaoLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sign_out"
-            android:textSize="16sp"
-            android:textColor="#FF3D00"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="30dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

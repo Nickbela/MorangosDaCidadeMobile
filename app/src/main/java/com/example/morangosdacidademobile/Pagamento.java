@@ -68,9 +68,12 @@ public class Pagamento extends AppCompatActivity {
             // Exibir os dados para fins de depuração (pode ser removido em produção)
             System.out.println("Dados do pagamento:\n" + dadosPagamento);
 
+            double totalCompra = getIntent().getDoubleExtra("totalCompra", 0.0);
+
 
             //  Direcionar para a tela de sucesso
             Intent intent = new Intent(Pagamento.this, Sucesso.class);
+            intent.putExtra("totalCompra", totalCompra);
             startActivity(intent);
                finish();startActivity(new Intent(this, Sucesso.class));
         });

@@ -68,13 +68,6 @@
                 android:textColor="#333333"
                 android:layout_marginBottom="8dp" />
 
-            <TextView
-                android:id="@+id/TelefoneCliente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/telefonecliente"
-                android:textSize="16sp"
-                android:textColor="#333333" />
         </LinearLayout>
 
         <!-- Seção de Detalhes do Pedido -->

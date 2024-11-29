@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;  // Importa o botão diretamente
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import com.example.morangosdacidademobile.Produto; // Para navegar até a Activity de Produtos
+import com.example.morangosdacidademobile.ProdutoFragment; // Para navegar até a Activity de Produtos
 import com.example.morangosdacidademobile.R; // Recursos do projeto
 
 public class HomeFragment extends Fragment {
@@ -26,15 +26,17 @@ public class HomeFragment extends Fragment {
         btnShopNow = root.findViewById(R.id.btnShopNow);
 
         // Configura o comportamento do botão "Comprar Agora"
-        btnShopNow.setOnClickListener(view -> navigateToProdutosActivity());
+        btnShopNow.setOnClickListener(view -> {
+            // Navegar diretamente para o ProdutoFragment
+            requireActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, new ProdutoFragment()) // Substitua o ID pelo container do fragment
+                    .addToBackStack(null) // Opcional: permite retornar ao fragment anterior
+                    .commit();
+        });
 
         return root;
     }
 
-    // Método para navegar para a Activity de Produtos
-    private void navigateToProdutosActivity() {
-        // Cria uma Intent para abrir a Activity de Produtos
-        Intent intent = new Intent(getActivity(), Produto.class);
-        startActivity(intent);  // Inicia a Activity
-    }
 }

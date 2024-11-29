@@ -4,6 +4,8 @@ import static android.content.ContentValues.TAG;
 
 import android.util.Log;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,7 +18,6 @@ import java.net.URL;
 
 import RegrasDeNegocio.Entity.Cliente;
 import java.io.BufferedReader;
-import com.example.morangosdacidademobile.Services.CadastroService;
 
 public class ClienteApiService {
 
@@ -173,8 +174,8 @@ public class ClienteApiService {
         return result.toString(); // Retorna a resposta da API.
     }
 
-    public static String deleteCliente(long id) throws Exception {
-        URL url = new URL(BASE_URL + "/deletar/" + id); // Cria a URL completa para a operação de exclusão.
+    public static String deleteCliente(String email) throws Exception {
+        URL url = new URL(BASE_URL + "/deletar/" + email); // Cria a URL completa para a operação de exclusão.
         HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // Abre uma conexão HTTP.
         conn.setRequestMethod("DELETE"); // Define o método da requisição como DELETE.
         conn.setRequestProperty("Content-Type", "application/json"); // Define o tipo de conteúdo como JSON.
@@ -189,5 +190,96 @@ public class ClienteApiService {
         reader.close();
         return result.toString(); // Retorna a resposta da API.
     }
+
+
+    public static String obterNomeCliente(String email) throws Exception {
+        URL url = new URL(BASE_URL + "/nome?email=" + email); // Cria a URL completa para a operação de exclusão.
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // Abre uma conexão HTTP.
+        conn.setRequestMethod("GET"); // Define o método da requisição como DELETE.
+        conn.setRequestProperty("Content-Type", "application/json"); // Define o tipo de conteúdo como JSON.
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        StringBuilder result = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            result.append(line);
+        }
+        reader.close();
+
+        String nomeCliente;
+        try {
+            // Verifica se a resposta é válida e não está vazia
+            if (result.length() > 0) {
+                // Se a resposta for o nome do cliente, armazene-o em uma variável
+                nomeCliente = result.toString();
+
+                // Log para verificar o nome do cliente
+                Log.d(TAG, "Nome do cliente: " + nomeCliente);
+            } else {
+                // Caso não haja resposta ou a resposta não seja válida
+                throw new Exception("Nome do cliente não encontrado.");
+            }
+        } catch (Exception e) {
+            throw new Exception("Erro ao processar a resposta da API: " + e.getMessage());
+        }
+
+
+        return nomeCliente;
+    }
+
+    public static Cliente getClienteDataByEmail(String email)throws Exception {
+
+        URL url = new URL(BASE_URL + "/data?email=" + email); // Cria a URL completa para a operação de exclusão.
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // Abre uma conexão HTTP.
+        conn.setRequestMethod("GET"); // Define o método da requisição como DELETE.
+        conn.setRequestProperty("Content-Type", "application/json"); // Define o tipo de conteúdo como JSON.
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        StringBuilder result = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            result.append(line);
+        }
+        reader.close();
+        // Aqui você colocaria a lógica de consulta ao banco ou à API, por exemplo
+
+        Cliente cliente = new Cliente();
+        try {
+            // Verifica se a resposta é válida e não está vazia
+            if (result.length() > 0) {
+                // Se a resposta for o nome do cliente, armazene-o em uma variável
+
+                cliente.setNome(cliente.getNome());
+                cliente.setCpf(cliente.getCpf());
+                cliente.setEmail(email);
+                cliente.setTelefone(cliente.getTelefone());
+                cliente.setRua(cliente.getRua());
+                cliente.setCidade(cliente.getCidade());
+                cliente.setEstado(cliente.getEstado());
+
+                Log.d("ClienteApiService", "Resposta JSON: " + result.toString());
+
+                // Log para depuração
+
+                // Use Jackson para desserializar
+                ObjectMapper mapper = new ObjectMapper();
+                cliente = mapper.readValue(result.toString(), Cliente.class);
+
+                // Log para verificar o nome do cliente
+                Log.d(TAG, "Nome do cliente: " + cliente.getNome());
+            } else {
+                // Caso não haja resposta ou a resposta não seja válida
+                throw new Exception("Nome do cliente não encontrado.");
+            }
+        } catch (Exception e) {
+            throw new Exception("Erro ao processar a resposta da API: " + e.getMessage());
+        }
+        // O método seria semelhante ao que você já fez anteriormente.
+
+
+
+        return cliente; // Retorna os dados simulados
+    }
+
 
 }

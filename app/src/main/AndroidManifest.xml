@@ -39,16 +39,16 @@
             android:exported="false"
             android:label="@string/title_activity_confirmacao" />
         <activity
-            android:name=".Carrinho"
+            android:name=".ui.CarrinhoFragment"
             android:exported="false"
-            android:label="@string/title_activity_carrinho"
+            android:label="Carrinho"
             android:theme="@style/Theme.MorangosDaCidadeMobile" />
         <activity
-            android:name=".Produto"
+            android:name=".ProdutoFragment"
             android:exported="false"
             android:theme="@style/Theme.MorangosDaCidadeMobile"/>
         <activity
-                android:name=".ui.Gerenciamento"
+                android:name=".Gerenciamento"
                 android:exported="false"
                 android:label="Gerenciamento">
 

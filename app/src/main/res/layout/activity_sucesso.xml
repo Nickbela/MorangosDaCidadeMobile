@@ -77,15 +77,6 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/TotalPedido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/total_compra"
-                android:textColor="#333333"
-                android:textSize="16sp" />
-
-            <TextView
                 android:id="@+id/DataCompra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

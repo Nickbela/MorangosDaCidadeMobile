@@ -4,6 +4,10 @@
         android:id="@+id/nav_home"
         android:icon="@drawable/home"
         android:title="@string/home" />
+    <item
+        android:id="@+id/nav_produtos"
+        android:icon="@drawable/morangoicon"
+        android:title="@string/produtos" />
 
     <item
         android:id="@+id/nav_carrinho"

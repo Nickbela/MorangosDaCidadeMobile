@@ -175,7 +175,10 @@
     <string name="voltar_">Voltar</string>
     <string name="carrinho">Carrinho</string>
     <string name="home">Home</string>
+    <string name="produtos">Produtos</string>
     <string name="perfil1">Perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
